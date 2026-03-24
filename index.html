@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lifespan Exam 2 Lulu's Study Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: "Open Sans", sans-serif; background: #0f1b35; color: #1a1a2e; overflow: hidden; }
+
+/* ── LAYOUT ── */
+.app-shell { display: flex; flex-direction: column; height: 100vh; }
+.topbar { background: #0f1b35; padding: 0 20px; height: 56px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 2px solid #ffd700; z-index: 100; }
+.logo { font-family: "Nunito", sans-serif; font-size: 1.15rem; font-weight: 900; color: #fff; white-space: nowrap; }
+.logo .lulus { color: #ff69b4; font-style: italic; animation: shimmer 2s ease-in-out infinite, float 3s ease-in-out infinite; background: linear-gradient(90deg, #ff69b4, #ff1493, #ffb6c1, #ff69b4); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.logo .sparkle { display: inline-block; animation: spin-pop 2s ease-in-out infinite; -webkit-text-fill-color: initial; }
+.logo .sparkle:last-child { animation-delay: 0.5s; }
+@keyframes shimmer { 0%,100%{background-position:0% center} 50%{background-position:100% center} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+@keyframes spin-pop { 0%,100%{transform:scale(1) rotate(0deg)} 50%{transform:scale(1.3) rotate(20deg)} }
+
+.tnav { display: flex; gap: 6px; align-items: center; }
+.tnav-btn { background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.82rem; font-weight: 600; transition: all 0.2s; white-space: nowrap; }
+.tnav-btn:hover { background: rgba(255,255,255,0.1); border-color: #ffd700; color: #ffd700; }
+.tnav-btn.active { background: #ffd700; color: #0f1b35; border-color: #ffd700; }
+
+.body-area { display: flex; flex: 1; overflow: hidden; }
+
+/* ── SIDEBAR ── */
+.sidebar { width: 220px; background: #1a2a4a; flex-shrink: 0; overflow-y: auto; padding: 16px 0; }
+.sl-section { padding: 8px 16px 4px; font-size: 0.65rem; font-weight: 700; color: #7a9cc8; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 8px; }
+.sl-btn { display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: none; color: #c8d8f0; padding: 8px 16px; cursor: pointer; font-size: 0.82rem; font-weight: 600; text-align: left; transition: all 0.15s; border-left: 3px solid transparent; }
+.sl-btn:hover { background: rgba(255,255,255,0.07); color: #fff; }
+.sl-btn.active { background: rgba(255,215,0,0.12); color: #ffd700; border-left-color: #ffd700; }
+.sl-sub-btn { display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: none; color: #8aabcc; padding: 6px 16px 6px 28px; cursor: pointer; font-size: 0.78rem; text-align: left; transition: all 0.15s; }
+.sl-sub-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.badge { background: #ffd700; color: #0f1b35; font-size: 0.65rem; font-weight: 800; padding: 1px 6px; border-radius: 10px; margin-left: auto; }
+.badge.red { background: #ff6b6b; color: #fff; }
+
+/* ── MAIN CONTENT ── */
+.main-content { flex: 1; overflow-y: auto; background: #f0f4ff; }
+.page { display: none; min-height: 100%; }
+.page.active { display: block; }
+
+/* ── HOME PAGE ── */
+.home-hero { background: linear-gradient(135deg, #0f1b35 0%, #1a3a6b 60%, #0d2d5e 100%); padding: 50px 40px; text-align: center; }
+.home-hero h1 { font-family: "Nunito", sans-serif; font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 10px; }
+.home-hero h1 .lulus { color: #ff69b4; font-style: italic; animation: shimmer 2s ease-in-out infinite, float 3s ease-in-out infinite; background: linear-gradient(90deg, #ff69b4, #ff1493, #ffb6c1, #ff69b4); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.home-hero h1 .sparkle { display: inline-block; animation: spin-pop 2s ease-in-out infinite; -webkit-text-fill-color: initial; }
+.home-hero p { color: #a8c4e8; font-size: 1rem; margin-bottom: 30px; }
+.hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto; }
+.hero-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 24px 20px; text-align: center; cursor: pointer; transition: all 0.2s; }
+.hero-card:hover { background: rgba(255,215,0,0.1); border-color: #ffd700; transform: translateY(-3px); }
+.hero-card .hc-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.hero-card h3 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.hero-card p { color: #8aabcc; font-size: 0.8rem; }
+.home-tips { background: #fff; margin: 30px 40px; border-radius: 16px; padding: 28px 32px; }
+.home-tips h2 { color: #0f1b35; font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; }
+.tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.tip-item { background: #f8f9ff; border-radius: 10px; padding: 14px; border-left: 4px solid #ffd700; }
+.tip-item strong { display: block; color: #0f1b35; font-size: 0.85rem; margin-bottom: 4px; }
+.tip-item span { color: #555; font-size: 0.78rem; }
+
+/* ── IFRAME PAGES ── */
+.iframe-wrap { width: 100%; height: calc(100vh - 56px); }
+.iframe-wrap iframe { width: 100%; height: 100%; border: none; }
+
+/* ── QUIZ PAGE ── */
+.qz-page-header { background: linear-gradient(135deg, #1a7a4a, #0d5c38); padding: 24px 32px; }
+.qz-page-header h2 { color: #fff; font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+.qz-page-header p { color: #a8e6c4; font-size: 0.88rem; }
+.qz-controls { background: #fff; padding: 14px 32px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; border-bottom: 2px solid #e8eef8; }
+.qz-mode-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid #dde4f0; background: #fff; color: #555; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.qz-mode-btn:hover { border-color: #1a7a4a; color: #1a7a4a; }
+.qz-mode-btn.active { background: #1a7a4a; color: #fff; border-color: #1a7a4a; }
+.qz-scorebar { background: #f0faf5; padding: 10px 32px; display: flex; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid #d0eadc; }
+.score-pill { background: #fff; border: 1.5px solid #b8ddc8; border-radius: 20px; padding: 4px 14px; font-size: 0.8rem; font-weight: 700; color: #1a7a4a; }
+.score-pill.wrong { border-color: #ffb3b3; color: #c0392b; }
+.qz-main { padding: 24px 32px; max-width: 800px; }
+.qcard { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+.qcard-num { font-size: 0.78rem; font-weight: 700; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.qcard-badge { display: inline-block; background: #fff0f0; color: #c0392b; border: 1.5px solid #ffb3b3; border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; font-weight: 700; margin-bottom: 12px; }
+.qcard-q { font-size: 1.05rem; font-weight: 700; color: #1a1a2e; margin-bottom: 20px; line-height: 1.5; }
+.qopt { display: block; width: 100%; text-align: left; background: #f8f9ff; border: 2px solid #dde4f0; border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 600; color: #333; cursor: pointer; transition: all 0.2s; }
+.qopt:hover:not(:disabled) { border-color: #1a7a4a; background: #f0faf5; color: #1a7a4a; }
+.qopt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+.qopt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+.qopt:disabled { cursor: default; }
+.qfeedback { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; }
+.qfeedback.correct { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
+.qfeedback.wrong { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+.qmnemonic { margin-top: 12px; background: #f3e8ff; border: 1.5px solid #c084fc; border-radius: 10px; padding: 14px 16px; font-size: 0.85rem; color: #5b21b6; }
+.qmnemonic strong { display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #7c3aed; }
+.qnext-btn { margin-top: 16px; background: #1a7a4a; color: #fff; border: none; border-radius: 10px; padding: 12px 28px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+.qnext-btn:hover { background: #145f38; }
+.qprogbar-wrap { background: #e0f0e8; height: 6px; border-radius: 3px; margin: 0 32px 0; }
+.qprogbar { background: #1a7a4a; height: 6px; border-radius: 3px; transition: width 0.3s; }
+.qz-done { text-align: center; padding: 60px 32px; }
+.qz-done h2 { font-size: 2rem; font-weight: 900; color: #1a7a4a; margin-bottom: 10px; }
+.qz-done p { color: #555; font-size: 1rem; margin-bottom: 24px; }
+.qz-done .score-big { font-size: 3rem; font-weight: 900; color: #ffd700; text-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.restart-btn { background: #1a7a4a; color: #fff; border: none; border-radius: 12px; padding: 14px 32px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+
+/* ── ANSWER KEY PAGE ── */
+.ak-page-header { background: linear-gradient(135deg, #2c3e7a, #1a2a5e); padding: 24px 32px; }
+.ak-page-header h2 { color: #fff; font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+.ak-page-header p { color: #a8b8e8; font-size: 0.88rem; }
+.ak-controls { background: #fff; padding: 14px 32px; display: flex; gap: 10px; flex-wrap: wrap; border-bottom: 2px solid #e8eef8; }
+.ak-filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid #dde4f0; background: #fff; color: #555; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.ak-filter-btn:hover { border-color: #2c3e7a; color: #2c3e7a; }
+.ak-filter-btn.active { background: #2c3e7a; color: #fff; border-color: #2c3e7a; }
+.ak-main { padding: 24px 32px; }
+.ak-item { background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid #2c3e7a; }
+.ak-item.tricky { border-left-color: #e74c3c; }
+.ak-q { font-size: 0.9rem; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+.ak-ans { font-size: 0.85rem; color: #155724; background: #d4edda; padding: 6px 12px; border-radius: 6px; display: inline-block; margin-bottom: 6px; }
+.ak-wrong { font-size: 0.82rem; color: #721c24; background: #f8d7da; padding: 4px 10px; border-radius: 6px; display: inline-block; margin-left: 8px; }
+.ak-chapter { font-size: 0.72rem; color: #888; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+/* ── LOADING ── */
+#loading { position: fixed; inset: 0; background: #0f1b35; display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.3s; }
+#loading.hidden { display: none; }
+.spinner { width: 48px; height: 48px; border: 5px solid rgba(255,215,0,0.2); border-top-color: #ffd700; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div id="loading"><div class="spinner"></div></div>
+
+<div class="app-shell">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo">
+      🧬 Bio 1320 <span class="sparkle">✨</span><span class="lulus">Lulu's</span><span class="sparkle">✨</span> Study Hub
+    </div>
+    <div class="tnav">
+      <button class="tnav-btn active" onclick="showPage('home')">🏠 Home</button>
+      <button class="tnav-btn" onclick="showPage('sg')">📚 Study Guide</button>
+      <button class="tnav-btn" onclick="showPage('qz')">🎓 Practice Quiz</button>
+      <button class="tnav-btn" onclick="showPage('ak')">📋 Answer Key</button>
+    </div>
+  </div>
+
+  <div class="body-area">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sl-section">Navigation</div>
+      <button class="sl-btn active" onclick="showPage('home')">🏠 Home</button>
+      <button class="sl-btn" onclick="showPage('sg')">📚 Study Guide</button>
+      <button class="sl-btn" onclick="showPage('qz')">🎓 Practice Quiz</button>
+      <button class="sl-btn" onclick="showPage('ak')">📋 Answer Key</button>
+
+      <div class="sl-section">Study Guide</div>
+      <button class="sl-sub-btn" onclick="showPage('sg'); scrollSG('ch6')">🟢 Ch. 6 Photosynthesis</button>
+      <button class="sl-sub-btn" onclick="showPage('sg'); scrollSG('ch7')">🔵 Ch. 7 Cell Respiration</button>
+      <button class="sl-sub-btn" onclick="showPage('sg'); scrollSG('ch8')">🟣 Ch. 8 Mitosis</button>
+      <button class="sl-sub-btn" onclick="showPage('sg'); scrollSG('cancer')">🔴 Ch. 8 Cancer</button>
+
+      <div class="sl-section">Practice Quiz</div>
+      <button class="sl-sub-btn" onclick="showPage('qz'); setQMode('all')">📝 All Questions <span class="badge">56</span></button>
+      <button class="sl-sub-btn" onclick="showPage('qz'); setQMode('ch6')">🟢 Ch. 6 Only</button>
+      <button class="sl-sub-btn" onclick="showPage('qz'); setQMode('ch7')">🔵 Ch. 7 Only</button>
+      <button class="sl-sub-btn" onclick="showPage('qz'); setQMode('ch8')">🟣 Ch. 8 Only</button>
+      <button class="sl-sub-btn" onclick="showPage('qz'); setQMode('r20')">⚡ Quick 20</button>
+      <button class="sl-sub-btn" onclick="showPage('qz'); setQMode('r40')">⚡ Quick 40</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- HOME PAGE -->
+      <div id="page-home" class="page active">
+        <div class="home-hero">
+          <h1>🧬 Bio 1320 <span class="sparkle">✨</span><span class="lulus">Lulu's</span><span class="sparkle">✨</span> Study Hub</h1>
+          <p>Chapters 6, 7 &amp; 8 — Photosynthesis · Cell Respiration · Mitosis &amp; Cancer · Exam 2</p>
+          <div class="hero-cards">
+            <div class="hero-card" onclick="showPage('sg')">
+              <div class="hc-icon">📚</div>
+              <h3>Study Guide</h3>
+              <p>Color-coded notes for all chapters with memory tricks &amp; examples</p>
+            </div>
+            <div class="hero-card" onclick="showPage('qz')">
+              <div class="hc-icon">🎓</div>
+              <h3>Practice Quiz</h3>
+              <p>56 questions with instant feedback &amp; mnemonics</p>
+            </div>
+            <div class="hero-card" onclick="showPage('ak')">
+              <div class="hc-icon">📋</div>
+              <h3>Answer Key</h3>
+              <p>All answers in one place — scan &amp; review fast</p>
+            </div>
+          </div>
+        </div>
+        <div class="home-tips">
+          <h2>🎯 Exam 2 Study Strategy</h2>
+          <div class="tip-grid">
+            <div class="tip-item"><strong>📅 Tonight</strong><span>Read Ch. 6 section of the Study Guide — focus on the two stages of photosynthesis</span></div>
+            <div class="tip-item"><strong>📅 Tomorrow</strong><span>Read Ch. 7 — trace glucose through glycolysis → Krebs → ETC. Do Quick 20 quiz.</span></div>
+            <div class="tip-item"><strong>📅 2 Days Before</strong><span>Read Ch. 8 Mitosis + Cancer. Do Quick 40 quiz. Check score.</span></div>
+            <div class="tip-item"><strong>📅 Night Before</strong><span>Do All Questions quiz. Review any you miss. Skim the Answer Key.</span></div>
+            <div class="tip-item"><strong>📅 Morning Of</strong><span>Quick 20 for confidence. Bring the Study Guide printout to the exam!</span></div>
+            <div class="tip-item"><strong>💡 Pro Tip</strong><span>Print the Study Guide! You can bring notes to the exam — use it!</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDY GUIDE PAGE (iframe) -->
+      <div id="page-sg" class="page">
+        <div class="iframe-wrap">
+          <iframe id="sg-iframe" src="study_guide.html" title="Study Guide"></iframe>
+        </div>
+      </div>
+
+      <!-- PRACTICE QUIZ PAGE -->
+      <div id="page-qz" class="page">
+        <div class="qz-page-header">
+          <h2>🎓 Practice Quiz</h2>
+          <p>Test your knowledge — get instant feedback and memory tricks when you miss one!</p>
+        </div>
+        <div class="qz-controls">
+          <button class="qz-mode-btn active" onclick="setQMode('all')">All Questions</button>
+          <button class="qz-mode-btn" onclick="setQMode('ch6')">🟢 Ch. 6</button>
+          <button class="qz-mode-btn" onclick="setQMode('ch7')">🔵 Ch. 7</button>
+          <button class="qz-mode-btn" onclick="setQMode('ch8')">🟣 Ch. 8</button>
+          <button class="qz-mode-btn" onclick="setQMode('r20')">⚡ Quick 20</button>
+          <button class="qz-mode-btn" onclick="setQMode('r40')">⚡ Quick 40</button>
+        </div>
+        <div class="qz-progbar-wrap" style="margin:0; padding: 0 32px;">
+          <div class="qprogbar" id="qprogbar" style="width:0%"></div>
+        </div>
+        <div class="qz-scorebar">
+          <div class="score-pill" id="score-correct">✅ Correct: 0</div>
+          <div class="score-pill wrong" id="score-wrong">❌ Wrong: 0</div>
+          <div class="score-pill" id="score-pct">📊 Score: —</div>
+          <div class="score-pill" id="score-pos">Question: 0 / 0</div>
+        </div>
+        <div class="qz-main" id="qz-qa"></div>
+      </div>
+
+      <!-- ANSWER KEY PAGE -->
+      <div id="page-ak" class="page">
+        <div class="ak-page-header">
+          <h2>📋 Answer Key</h2>
+          <p>All correct answers — filter by chapter or topic</p>
+        </div>
+        <div class="ak-controls">
+          <button class="ak-filter-btn active" onclick="filterAK('all')">All Questions</button>
+          <button class="ak-filter-btn" onclick="filterAK('ch6')">🟢 Ch. 6</button>
+          <button class="ak-filter-btn" onclick="filterAK('ch7')">🔵 Ch. 7</button>
+          <button class="ak-filter-btn" onclick="filterAK('ch8')">🟣 Ch. 8</button>
+        </div>
+        <div class="ak-main" id="ak-list"></div>
+      </div>
+
+    </div><!-- end main-content -->
+  </div><!-- end body-area -->
+</div><!-- end app-shell -->
+
+<script>
+// ── DATA ──
+const QD = [{"q": "What is the overall equation for photosynthesis?", "opts": ["6O₂ + 6H₂O → C₆H₁₂O₆ + 6CO₂", "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP", "CO₂ + H₂O → glucose + O₂ + H₂O", "6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂"], "ans": "6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂", "chapter": "Ch. 6", "mnemonic": "🌿 'Plants Cook With Sun' — CO₂ + H₂O + LIGHT → Sugar + O₂. Plants are the chefs of the living world!"}, {"q": "Where does photosynthesis take place in plant cells?", "opts": ["Ribosomes", "Chloroplasts", "Mitochondria", "Nucleus"], "ans": "Chloroplasts", "chapter": "Ch. 6", "mnemonic": "🟢 'CHLORoplasts = CHLORophyll home' — the green pigment and the green organelle go together!"}, {"q": "What are the two main stages of photosynthesis?", "opts": ["Light reactions and the Calvin cycle", "Electron transport and fermentation", "Oxidation and reduction", "Glycolysis and the Krebs cycle"], "ans": "Light reactions and the Calvin cycle", "chapter": "Ch. 6", "mnemonic": "💡🌿 'LIGHT then DARK' — Light reactions need sunlight; Calvin cycle (dark reactions) just need the products of light reactions."}, {"q": "Where do the light reactions occur within the chloroplast?", "opts": ["Outer membrane", "Thylakoid membranes", "Stroma", "Matrix"], "ans": "Thylakoid membranes", "chapter": "Ch. 6", "mnemonic": "🥞 'THYLAkoids = TILES stacked like pancakes' — the flat stacked membranes where light is captured."}, {"q": "Where does the Calvin cycle occur within the chloroplast?", "opts": ["Stroma", "Grana", "Inner membrane", "Thylakoid membrane"], "ans": "Stroma", "chapter": "Ch. 6", "mnemonic": "🌊 'STROMA = the STORM of chemistry' — the fluid-filled space where CO₂ is fixed into sugar."}, {"q": "What pigment is primarily responsible for capturing light energy in plants?", "opts": ["Xanthophyll", "Phycocyanin", "Chlorophyll", "Carotenoid"], "ans": "Chlorophyll", "chapter": "Ch. 6", "mnemonic": "🟢 'CHLORophyll = CHLORine green' — the green pigment that makes plants green AND captures light."}, {"q": "What colors of light does chlorophyll absorb BEST?", "opts": ["Orange and purple", "Red and blue-violet", "Green and yellow", "White and ultraviolet"], "ans": "Red and blue-violet", "chapter": "Ch. 6", "mnemonic": "🔴🔵 'RB = Really Best absorbed' — Red and Blue are absorbed; green is REFLECTED (that's why plants look green!)"}, {"q": "What are the products of the light reactions that are used in the Calvin cycle?", "opts": ["Glucose and O₂", "ADP and NADP⁺", "CO₂ and H₂O", "ATP and NADPH"], "ans": "ATP and NADPH", "chapter": "Ch. 6", "mnemonic": "⚡ 'Light makes ENERGY MONEY — ATP (energy) and NADPH (electron carrier) are the currency the Calvin cycle spends.'"}, {"q": "What gas is released as a byproduct of the light reactions?", "opts": ["CO₂", "H₂", "N₂", "O₂"], "ans": "O₂", "chapter": "Ch. 6", "mnemonic": "💨 'Water SPLITS → Oxygen EXITS' — H₂O is split in the light reactions; the O₂ we breathe comes from this splitting!"}, {"q": "What molecule is the primary CO₂ acceptor in the Calvin cycle?", "opts": ["RuBP (ribulose bisphosphate)", "NADPH", "ATP", "G3P"], "ans": "RuBP (ribulose bisphosphate)", "chapter": "Ch. 6", "mnemonic": "🤝 'RuBP = Really Useful Binding Partner' — it grabs CO₂ and starts the Calvin cycle."}, {"q": "What enzyme catalyzes CO₂ fixation in the Calvin cycle?", "opts": ["Helicase", "Rubisco", "Polymerase", "ATP synthase"], "ans": "Rubisco", "chapter": "Ch. 6", "mnemonic": "🏆 'RUBISCO = the most ABUNDANT protein on Earth' — it fixes CO₂ into organic molecules. Think: 'Rubisco RUBS CO₂ into sugar.'"}, {"q": "What is the 3-carbon product of the Calvin cycle that can be used to build glucose?", "opts": ["Oxaloacetate", "G3P (glyceraldehyde-3-phosphate)", "Acetyl-CoA", "Pyruvate"], "ans": "G3P (glyceraldehyde-3-phosphate)", "chapter": "Ch. 6", "mnemonic": "🧱 'G3P = the BUILDING BLOCK' — two G3P molecules join to make one glucose. It's the raw material!"}, {"q": "What is photorespiration?", "opts": ["The splitting of water molecules", "When rubisco binds O₂ instead of CO₂, wasting energy", "The process of making ATP using light", "Cellular respiration that occurs in light"], "ans": "When rubisco binds O₂ instead of CO₂, wasting energy", "chapter": "Ch. 6", "mnemonic": "😤 'Photorespiration = Photosynthesis MESSING UP' — rubisco accidentally grabs O₂ on hot dry days, producing no sugar. It's a mistake!"}, {"q": "What adaptation do C4 plants have to minimize photorespiration?", "opts": ["They use a different pigment instead of chlorophyll", "They perform photosynthesis only in roots", "They concentrate CO₂ around rubisco in bundle sheath cells", "They close stomata at night"], "ans": "They concentrate CO₂ around rubisco in bundle sheath cells", "chapter": "Ch. 6", "mnemonic": "🌽 'C4 = CORN and sugarcane — they pre-fix CO₂ in mesophyll cells and DELIVER it to rubisco, keeping O₂ away.'"}, {"q": "What do CAM plants (like cacti) do to minimize photorespiration?", "opts": ["Open stomata during the day and close at night", "Open stomata at night to collect CO₂, close during day", "Perform photosynthesis underground", "Use a special form of rubisco that ignores O₂"], "ans": "Open stomata at night to collect CO₂, close during day", "chapter": "Ch. 6", "mnemonic": "🌵 'CAM = Cactus At Midnight — opens at night to grab CO₂ without losing water in the heat.'"}, {"q": "What is the overall equation for cellular respiration?", "opts": ["C₆H₁₂O₆ → 2 pyruvate + 2 ATP", "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂", "Glucose + ATP → CO₂ + H₂O", "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP"], "ans": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP", "chapter": "Ch. 7", "mnemonic": "🔥 'Respiration is the REVERSE of photosynthesis' — glucose + oxygen → CO₂ + water + energy. You burn the sugar!"}, {"q": "Where does glycolysis occur in the cell?", "opts": ["Inner mitochondrial membrane", "Nucleus", "Cytoplasm (cytosol)", "Mitochondrial matrix"], "ans": "Cytoplasm (cytosol)", "chapter": "Ch. 7", "mnemonic": "🏠 'GLYcolysis = GLYcerol in the CYTOPLASM' — it happens OUTSIDE the mitochondria, no oxygen needed!"}, {"q": "What is the net ATP yield from glycolysis?", "opts": ["2 ATP", "38 ATP", "4 ATP", "36 ATP"], "ans": "2 ATP", "chapter": "Ch. 7", "mnemonic": "✌️ 'Glycolysis = 2 for the price of 2' — uses 2 ATP, makes 4 ATP, NET = 2 ATP. Small but important start!"}, {"q": "What is the 3-carbon product of glycolysis?", "opts": ["Citrate", "Pyruvate", "Oxaloacetate", "Acetyl-CoA"], "ans": "Pyruvate", "chapter": "Ch. 7", "mnemonic": "🔥 'PYRO = fire/heat — PYRUvate is the HOT product of breaking glucose in half. Pyro = burning glucose!'"}, {"q": "Where does the Krebs cycle (citric acid cycle) occur?", "opts": ["Cytoplasm", "Thylakoid membrane", "Mitochondrial matrix", "Outer mitochondrial membrane"], "ans": "Mitochondrial matrix", "chapter": "Ch. 7", "mnemonic": "🔵 'Krebs = the MATRIX — like the movie, the real action happens in the MATRIX of the mitochondria.'"}, {"q": "Before entering the Krebs cycle, pyruvate is converted to what molecule?", "opts": ["Glucose", "NADH", "Citrate", "Acetyl-CoA"], "ans": "Acetyl-CoA", "chapter": "Ch. 7", "mnemonic": "🚪 'Acetyl-CoA = the TICKET into the Krebs cycle' — pyruvate loses a CO₂ and becomes acetyl-CoA to enter."}, {"q": "What are the main products of the Krebs cycle (per glucose molecule)?", "opts": ["4 ATP, 2 NADH", "2 pyruvate, 2 ATP", "36 ATP, 6 CO₂", "2 ATP, 6 NADH, 2 FADH₂, 4 CO₂"], "ans": "2 ATP, 6 NADH, 2 FADH₂, 4 CO₂", "chapter": "Ch. 7", "mnemonic": "📦 'Krebs PACKAGES electrons — mostly NADH and FADH₂ (electron carriers) to send to the ETC. Only 2 ATP directly!'"}, {"q": "Where does the electron transport chain (ETC) occur?", "opts": ["Mitochondrial matrix", "Outer mitochondrial membrane", "Inner mitochondrial membrane", "Cytoplasm"], "ans": "Inner mitochondrial membrane", "chapter": "Ch. 7", "mnemonic": "🏭 'ETC = the INNER FACTORY WALL — proteins embedded in the inner membrane pump H⁺ ions like an assembly line.'"}, {"q": "What is the final electron acceptor in the electron transport chain?", "opts": ["O₂ (oxygen)", "ATP", "CO₂", "NAD⁺"], "ans": "O₂ (oxygen)", "chapter": "Ch. 7", "mnemonic": "💨 'O₂ = the DRAIN — electrons flow down the ETC and O₂ catches them at the end, forming H₂O. Without O₂, the drain is blocked!'"}, {"q": "What enzyme makes ATP during the electron transport chain?", "opts": ["ATP synthase", "Rubisco", "Helicase", "Kinase"], "ans": "ATP synthase", "chapter": "Ch. 7", "mnemonic": "⚙️ 'ATP synthase = the TURBINE — H⁺ ions flow through it like water through a turbine, spinning it to make ATP!'"}, {"q": "Approximately how many ATP molecules are produced from one glucose molecule in aerobic respiration?", "opts": ["4", "~30-32", "2", "18"], "ans": "~30-32", "chapter": "Ch. 7", "mnemonic": "🎰 'Aerobic = the JACKPOT — ~30-32 ATP vs. glycolysis alone = only 2. Oxygen makes you rich in energy!'"}, {"q": "What is fermentation?", "opts": ["The process of making ATP using the electron transport chain", "The light-independent reactions of photosynthesis", "Anaerobic process that regenerates NAD⁺ to allow glycolysis to continue", "Aerobic breakdown of glucose in the mitochondria"], "ans": "Anaerobic process that regenerates NAD⁺ to allow glycolysis to continue", "chapter": "Ch. 7", "mnemonic": "🍺 'FERMENTATION = survival mode — no oxygen? Recycle NAD⁺ so glycolysis keeps making 2 ATP. Yeast makes alcohol; muscles make lactic acid!'"}, {"q": "What are the two types of fermentation?", "opts": ["Lactic acid fermentation and alcoholic fermentation", "Oxidative and substrate-level phosphorylation", "Aerobic and anaerobic fermentation", "Glycolysis and the Krebs cycle"], "ans": "Lactic acid fermentation and alcoholic fermentation", "chapter": "Ch. 7", "mnemonic": "🥛🍺 'LACTIC = muscles burn (sore after exercise); ALCOHOLIC = yeast makes beer/bread. Both recycle NAD⁺!'"}, {"q": "What happens to fats and proteins when they enter cellular respiration?", "opts": ["They go directly to the electron transport chain", "They are converted to glucose first", "They cannot be used in cellular respiration", "They are broken down into fragments that enter glycolysis or the Krebs cycle"], "ans": "They are broken down into fragments that enter glycolysis or the Krebs cycle", "chapter": "Ch. 7", "mnemonic": "🍔 'Fats and proteins = ALTERNATIVE FUELS — fatty acids enter as acetyl-CoA; amino acids enter at various Krebs cycle points.'"}, {"q": "What are the four phases of mitosis in order?", "opts": ["Prophase, Metaphase, Anaphase, Telophase", "Interphase, Prophase, Metaphase, Cytokinesis", "G1, S, G2, M phase", "Metaphase, Prophase, Telophase, Anaphase"], "ans": "Prophase, Metaphase, Anaphase, Telophase", "chapter": "Ch. 8", "mnemonic": "🎭 'PMAT = Please Make A Tiger' — Prophase, Metaphase, Anaphase, Telophase. Say it loud!"}, {"q": "What are the three stages of interphase?", "opts": ["G0, G1, G2", "Prophase, Metaphase, Anaphase", "Synthesis, Growth, Division", "G1, S phase, G2"], "ans": "G1, S phase, G2", "chapter": "Ch. 8", "mnemonic": "📚 'G1 = GROW, S = SYNTHESIZE DNA (copy it!), G2 = GET READY — then mitosis begins!'"}, {"q": "During which phase of the cell cycle is DNA replicated?", "opts": ["G1 phase", "M phase", "S (synthesis) phase", "G2 phase"], "ans": "S (synthesis) phase", "chapter": "Ch. 8", "mnemonic": "🧬 'S = SYNTHESIZE = COPY DNA' — S phase is when the cell makes an exact copy of all its chromosomes."}, {"q": "What happens during prophase of mitosis?", "opts": ["Chromosomes line up at the cell's equator", "Chromosomes condense and become visible; spindle forms", "Sister chromatids separate and move to poles", "Nuclear envelope reforms around each set of chromosomes"], "ans": "Chromosomes condense and become visible; spindle forms", "chapter": "Ch. 8", "mnemonic": "🔭 'PRO = PREpare — chromosomes CONDENSE (get fat and visible) and the spindle FORMS. Getting ready for the show!'"}, {"q": "What happens during metaphase of mitosis?", "opts": ["Sister chromatids separate", "Two new nuclear envelopes form", "Chromosomes condense", "Chromosomes align at the cell's equator (metaphase plate)"], "ans": "Chromosomes align at the cell's equator (metaphase plate)", "chapter": "Ch. 8", "mnemonic": "🎯 'META = MIDDLE — chromosomes line up in the MIDDLE of the cell. META = the METro line in the middle!'"}, {"q": "What happens during anaphase of mitosis?", "opts": ["Chromosomes align at the equator", "Sister chromatids are pulled apart to opposite poles", "Chromosomes condense and spindle forms", "Nuclear envelope reforms"], "ans": "Sister chromatids are pulled apart to opposite poles", "chapter": "Ch. 8", "mnemonic": "↔️ 'ANA = APART — sister chromatids are pulled APART to opposite ends. ANA = ANAtomy pulling APART!'"}, {"q": "What happens during telophase of mitosis?", "opts": ["Chromosomes align at the equator", "Sister chromatids separate", "Nuclear envelopes reform and chromosomes decondense", "Chromosomes condense"], "ans": "Nuclear envelopes reform and chromosomes decondense", "chapter": "Ch. 8", "mnemonic": "🏁 'TELO = the END (like TELOphone = the end of a call) — nuclear envelope REFORMS, chromosomes RELAX. Almost done!'"}, {"q": "What is cytokinesis?", "opts": ["DNA replication", "The division of the nucleus", "The division of the cytoplasm to form two daughter cells", "The condensation of chromosomes"], "ans": "The division of the cytoplasm to form two daughter cells", "chapter": "Ch. 8", "mnemonic": "✂️ 'CYTO = cell, KINESIS = movement/splitting — the CYTOPLASM splits to make TWO cells. The final cut!'"}, {"q": "What is the difference between sister chromatids and homologous chromosomes?", "opts": ["They are the same thing", "Homologous chromosomes are identical; sister chromatids come from different parents", "Sister chromatids are identical copies joined at the centromere; homologs are pairs from mom and dad", "Sister chromatids only exist in prokaryotes"], "ans": "Sister chromatids are identical copies joined at the centromere; homologs are pairs from mom and dad", "chapter": "Ch. 8", "mnemonic": "👯 'SISTERS = identical twins joined at the hip (centromere); HOMOLOGS = fraternal twins — same type but from different parents!'"}, {"q": "If a human cell has 46 chromosomes at the start of mitosis, how many chromosomes will each daughter cell have?", "opts": ["46", "23", "12", "92"], "ans": "46", "chapter": "Ch. 8", "mnemonic": "🔢 'Mitosis = SAME number — 46 in, 46 out. Mitosis makes IDENTICAL copies, not halves!'"}, {"q": "What is the diploid number (2n) of humans?", "opts": ["44", "46", "92", "23"], "ans": "46", "chapter": "Ch. 8", "mnemonic": "👫 '46 chromosomes = 23 PAIRS — one from mom, one from dad. 2n = 46 for humans.'"}, {"q": "What is a karyotype?", "opts": ["A type of cell division", "A photograph of chromosomes arranged in homologous pairs", "A diagram of the cell cycle", "The process of DNA replication"], "ans": "A photograph of chromosomes arranged in homologous pairs", "chapter": "Ch. 8", "mnemonic": "📸 'KARYOTYPE = chromosome PORTRAIT — a photo of all your chromosomes lined up in pairs. Used to detect abnormalities!'"}, {"q": "What is a nucleosome?", "opts": ["A small nucleus", "DNA wrapped around histone proteins", "A type of ribosome", "The centromere of a chromosome"], "ans": "DNA wrapped around histone proteins", "chapter": "Ch. 8", "mnemonic": "🍭 'NUCLEOSOME = DNA on a SPOOL — DNA wraps around histone proteins like thread on a spool. Histones are the spools!'"}, {"q": "What is the difference between prokaryotic and eukaryotic cell division?", "opts": ["Eukaryotes divide faster than prokaryotes", "Prokaryotes use binary fission (simple splitting); eukaryotes use mitosis (complex spindle-based division)", "Both use the same process", "Prokaryotes use mitosis; eukaryotes use binary fission"], "ans": "Prokaryotes use binary fission (simple splitting); eukaryotes use mitosis (complex spindle-based division)", "chapter": "Ch. 8", "mnemonic": "🦠 'PRO = SIMPLE (binary fission = just split in two); EUK = COMPLEX (mitosis with spindle, phases, etc.)'"}, {"q": "What is cancer?", "opts": ["Programmed cell death", "A viral infection of cells", "A deficiency of ATP production", "Uncontrolled cell division resulting from mutations in cell cycle control genes"], "ans": "Uncontrolled cell division resulting from mutations in cell cycle control genes", "chapter": "Ch. 8 Cancer", "mnemonic": "🚨 'Cancer = the BRAKES FAIL — normally the cell cycle has checkpoints (brakes); cancer = mutations break the brakes!'"}, {"q": "What is an oncogene?", "opts": ["A mutated proto-oncogene that promotes uncontrolled cell division", "A gene that suppresses tumor growth", "A normal gene involved in DNA repair", "A gene that causes apoptosis"], "ans": "A mutated proto-oncogene that promotes uncontrolled cell division", "chapter": "Ch. 8 Cancer", "mnemonic": "🚗 'ONCOGENE = stuck GAS PEDAL — proto-oncogenes are the normal gas pedal; oncogenes = gas pedal stuck to the floor!'"}, {"q": "What is a tumor suppressor gene?", "opts": ["A gene that normally inhibits cell division or promotes apoptosis", "A gene that speeds up cell division", "A gene that codes for growth hormones", "A gene that promotes cancer growth"], "ans": "A gene that normally inhibits cell division or promotes apoptosis", "chapter": "Ch. 8 Cancer", "mnemonic": "🛑 'TUMOR SUPPRESSOR = the BRAKES — they slow down or stop cell division. Lose both copies = brakes fail = cancer!'"}, {"q": "Which tumor suppressor gene is mutated in about 50% of all human cancers?", "opts": ["HER2", "BRCA1", "p53", "Rb (retinoblastoma)"], "ans": "p53", "chapter": "Ch. 8 Cancer", "mnemonic": "🏆 'p53 = the GUARDIAN of the genome — it monitors DNA damage and triggers repair or apoptosis. Lost in HALF of all cancers!'"}, {"q": "What is the difference between a benign and malignant tumor?", "opts": ["Benign tumors stay localized; malignant tumors invade other tissues (metastasize)", "Benign tumors grow faster than malignant", "Benign tumors are cancerous; malignant are not", "There is no difference"], "ans": "Benign tumors stay localized; malignant tumors invade other tissues (metastasize)", "chapter": "Ch. 8 Cancer", "mnemonic": "🏠🌍 'BENIGN = stays HOME (localized); MALIGNANT = TRAVELS (metastasizes to other organs). Malignant = MEAN and MOVING!'"}, {"q": "What is metastasis?", "opts": ["DNA repair in cancer cells", "The initial formation of a tumor", "The spread of cancer cells from the original tumor to other parts of the body", "The death of cancer cells"], "ans": "The spread of cancer cells from the original tumor to other parts of the body", "chapter": "Ch. 8 Cancer", "mnemonic": "✈️ 'METASTASIS = cancer TRAVELING — cells break off and travel through blood/lymph to start new tumors elsewhere.'"}, {"q": "What is apoptosis?", "opts": ["Programmed cell death — the cell's built-in self-destruct mechanism", "The process of DNA replication", "Cell growth during G1 phase", "Uncontrolled cell division"], "ans": "Programmed cell death — the cell's built-in self-destruct mechanism", "chapter": "Ch. 8 Cancer", "mnemonic": "💀 'APOPTOSIS = cell SUICIDE — the cell gets a signal to self-destruct. Cancer cells IGNORE this signal!'"}, {"q": "What role do telomeres play in cancer?", "opts": ["They have no role in cancer", "Normal cells lose telomere length with each division and eventually stop dividing; cancer cells use telomerase to maintain telomeres and divide indefinitely", "Telomeres cause mutations that lead to cancer", "They provide energy for cancer cells"], "ans": "Normal cells lose telomere length with each division and eventually stop dividing; cancer cells use telomerase to maintain telomeres and divide indefinitely", "chapter": "Ch. 8 Cancer", "mnemonic": "⏱️ 'TELOMERES = the COUNTDOWN CLOCK — normal cells run out of telomere and stop. Cancer cells CHEAT by using telomerase to reset the clock!'"}, {"q": "If an organism has 36 chromosomes in G2 phase, what is the diploid number (2n)?", "opts": ["72", "9", "36", "18"], "ans": "36", "chapter": "Ch. 8 (TopHat)", "mnemonic": "🔢 'G2 = DNA is COPIED but chromosomes haven't split yet — so chromosome NUMBER is still 2n = 36. DNA content doubled, not chromosome count!'"}, {"q": "Which of the following best describes the role of NADH and FADH₂ in cellular respiration?", "opts": ["They are the final products of the Krebs cycle that are excreted", "They are used to fix CO₂ in the Calvin cycle", "They directly produce ATP in glycolysis", "They carry electrons to the electron transport chain"], "ans": "They carry electrons to the electron transport chain", "chapter": "Ch. 7 (TopHat)", "mnemonic": "🚌 'NADH and FADH₂ = ELECTRON BUSES — they pick up electrons in glycolysis/Krebs and DELIVER them to the ETC for ATP production!'"}, {"q": "Chlorophyll appears green because it:", "opts": ["Absorbs green light and reflects all others", "Absorbs all wavelengths equally", "Emits green light as fluorescence", "Absorbs red and blue light and reflects green light"], "ans": "Absorbs red and blue light and reflects green light", "chapter": "Ch. 6 (TopHat)", "mnemonic": "🟢 'Plants look GREEN because they REFLECT green — they absorb red and blue but BOUNCE green back to your eyes!'"}, {"q": "During which phase of mitosis do chromosomes line up at the cell's equator?", "opts": ["Telophase", "Prophase", "Metaphase", "Anaphase"], "ans": "Metaphase", "chapter": "Ch. 8 (TopHat)", "mnemonic": "🎯 'META = MIDDLE — Metaphase = chromosomes in the MIDDLE. The M in Middle matches the M in Metaphase!'"}, {"q": "What is the primary function of the Calvin cycle?", "opts": ["To produce O₂ from water", "To produce NADPH from NADP⁺", "To capture light energy", "To use ATP and NADPH to fix CO₂ into G3P (sugar)"], "ans": "To use ATP and NADPH to fix CO₂ into G3P (sugar)", "chapter": "Ch. 6 (TopHat)", "mnemonic": "🏭 'Calvin cycle = the SUGAR FACTORY — takes CO₂ from the air and uses ATP + NADPH (from light reactions) to BUILD G3P sugar!'"}];
+
+// ── STATE ──
+let qPool = [], qIdx = 0, qCorrect = 0, qWrong = 0, qAnswered = false;
+let currentMode = 'all';
+
+// ── NAVIGATION ──
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tnav-btn, .sl-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('[onclick*="showPage(\''+id+'\')"]').forEach(b => b.classList.add('active'));
+  if (id === 'qz' && qPool.length === 0) startQuiz('all');
+  if (id === 'ak') renderAK('all');
+}
+
+function scrollSG(anchor) {
+  const iframe = document.getElementById('sg-iframe');
+  if (iframe) {
+    iframe.onload = function() {
+      try { iframe.contentWindow.location.hash = anchor; } catch(e) {}
+    };
+    try {
+      iframe.contentWindow.location.hash = anchor;
+    } catch(e) {
+      iframe.src = 'study_guide.html#' + anchor;
+    }
+  }
+}
+
+// ── QUIZ ──
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i>0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function setQMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.qz-mode-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  startQuiz(mode);
+}
+
+function startQuiz(mode) {
+  let pool = [...QD];
+  if (mode === 'ch6') pool = pool.filter(q => q.chapter.includes('6'));
+  else if (mode === 'ch7') pool = pool.filter(q => q.chapter.includes('7'));
+  else if (mode === 'ch8') pool = pool.filter(q => q.chapter.includes('8'));
+  pool = shuffle(pool);
+  if (mode === 'r20') pool = pool.slice(0, 20);
+  if (mode === 'r40') pool = pool.slice(0, 40);
+  qPool = pool;
+  qIdx = 0; qCorrect = 0; qWrong = 0; qAnswered = false;
+  updateScore();
+  renderQ();
+}
+
+function updateScore() {
+  const total = qCorrect + qWrong;
+  document.getElementById('score-correct').textContent = '✅ Correct: ' + qCorrect;
+  document.getElementById('score-wrong').textContent = '❌ Wrong: ' + qWrong;
+  document.getElementById('score-pct').textContent = total > 0 ? '📊 Score: ' + Math.round(qCorrect/total*100) + '%' : '📊 Score: —';
+  document.getElementById('score-pos').textContent = 'Question: ' + Math.min(qIdx+1, qPool.length) + ' / ' + qPool.length;
+  const pct = qPool.length > 0 ? (qIdx / qPool.length * 100) : 0;
+  document.getElementById('qprogbar').style.width = pct + '%';
+}
+
+function renderQ() {
+  const el = document.getElementById('qz-qa');
+  if (qIdx >= qPool.length) {
+    const pct = qPool.length > 0 ? Math.round(qCorrect/qPool.length*100) : 0;
+    el.innerHTML = '<div class="qz-done"><div class="score-big">' + pct + '%</div><h2>Quiz Complete!</h2><p>You got ' + qCorrect + ' out of ' + qPool.length + ' correct.</p><button class="restart-btn" onclick="startQuiz(currentMode)">🔄 Try Again</button></div>';
+    return;
+  }
+  const q = qPool[qIdx];
+  const shuffledOpts = shuffle(q.opts);
+  let optsHTML = '';
+  shuffledOpts.forEach(function(opt, i) {
+    optsHTML += '<button class="qopt" data-i="' + i + '" onclick="pickQ(this)">' + opt + '</button>';
+  });
+  el.innerHTML = '<div class="qcard"><div class="qcard-num">Question ' + (qIdx+1) + ' of ' + qPool.length + ' &nbsp;|&nbsp; ' + q.chapter + '</div>' + '<div class="qcard-q">' + q.q + '</div>' + optsHTML + '</div>';
+  qAnswered = false;
+  updateScore();
+}
+
+function pickQ(btn) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const card = btn.closest('.qcard');
+  const opts = card.querySelectorAll('.qopt');
+  const q = qPool[qIdx];
+  const chosen = btn.textContent;
+  const isCorrect = chosen === q.ans;
+  if (isCorrect) qCorrect++; else qWrong++;
+  opts.forEach(function(o) {
+    o.disabled = true;
+    if (o.textContent === q.ans) o.classList.add('correct');
+    else if (o === btn && !isCorrect) o.classList.add('wrong');
+  });
+  let feedbackHTML = '';
+  if (isCorrect) {
+    feedbackHTML = '<div class="qfeedback correct">✅ Correct! Great job!</div>';
+  } else {
+    feedbackHTML = '<div class="qfeedback wrong">❌ Not quite. The correct answer is: <strong>' + q.ans + '</strong></div>';
+    if (q.mnemonic) {
+      feedbackHTML += '<div class="qmnemonic"><strong>🧠 Memory Trick</strong>' + q.mnemonic + '</div>';
+    }
+  }
+  feedbackHTML += '<button class="qnext-btn" onclick="nextQ()">' + (qIdx+1 < qPool.length ? 'Next Question →' : 'See Results →') + '</button>';
+  card.insertAdjacentHTML('beforeend', feedbackHTML);
+  updateScore();
+}
+
+function nextQ() {
+  qIdx++;
+  renderQ();
+  document.querySelector('.qz-main').scrollTop = 0;
+  document.querySelector('.main-content').scrollTop = 0;
+}
+
+// ── ANSWER KEY ──
+function renderAK(filter) {
+  document.querySelectorAll('.ak-filter-btn').forEach(b => b.classList.remove('active'));
+  event && event.target && event.target.classList.add('active');
+  let items = [...QD];
+  if (filter === 'ch6') items = items.filter(q => q.chapter.includes('6'));
+  else if (filter === 'ch7') items = items.filter(q => q.chapter.includes('7'));
+  else if (filter === 'ch8') items = items.filter(q => q.chapter.includes('8'));
+  const el = document.getElementById('ak-list');
+  el.innerHTML = items.map(function(q, i) {
+    return '<div class="ak-item"><div class="ak-chapter">' + q.chapter + '</div><div class="ak-q">' + (i+1) + '. ' + q.q + '</div><span class="ak-ans">✅ ' + q.ans + '</span>' + (q.mnemonic ? '<div class="qmnemonic" style="margin-top:8px"><strong>🧠 Memory Trick</strong>' + q.mnemonic + '</div>' : '') + '</div>';
+  }).join('');
+}
+
+function filterAK(filter) {
+  renderAK(filter);
+}
+
+// ── INIT ──
+document.getElementById('loading').classList.add('hidden');
+</script>
+</body>
+</html>
