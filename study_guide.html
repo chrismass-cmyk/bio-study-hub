@@ -5,141 +5,219 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bio 1320 Exam 2 — Lulu's Study Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── PALETTE: Earthy Olive & Terracotta ──
-   Forest green:  #2d5a27
-   Sage mid:      #4a7c59
-   Sage light:    #8fad88
-   Cream:         #f5f0e8
-   Off-white:     #faf8f4
-   Terracotta:    #b5533c
-   Clay warm:     #c97b5a
-   Gold accent:   #c9973a
-   Dark text:     #2a2118
+/* ── PALETTE ──
+   Forest green:  #2d5a27   Sage:    #4a7c59   Sage light: #8fad88
+   Terracotta:    #b5533c   Clay:    #c97b5a   Gold:       #c9973a
+   Brown:         #6b4e2e   Cream:   #faf8f4   Dark text:  #2a2118
 */
 :root {
-  --ch6: #4a7c59; --ch6-light: #eef4ec; --ch6-mid: #8fad88;
-  --ch7: #c9973a; --ch7-light: #fdf7ee; --ch7-mid: #e8c97a;
-  --ch8m: #6b4e2e; --ch8m-light: #f5ede4; --ch8m-mid: #c4a07a;
-  --ch8c: #b5533c; --ch8c-light: #fdf0ec; --ch8c-mid: #e8a090;
+  --ch6:    #4a7c59; --ch6-lt:  #eef4ec; --ch6-dk:  #2d5a27;
+  --ch7:    #c9973a; --ch7-lt:  #fdf7ee; --ch7-dk:  #a07828;
+  --ch8m:   #6b4e2e; --ch8m-lt: #f5ede4; --ch8m-dk: #4a3520;
+  --ch8c:   #b5533c; --ch8c-lt: #fdf0ec; --ch8c-dk: #8a3828;
+  --gold:   #c9973a;
+  --dark:   #2a2118;
+  --mid:    #5c4a3a;
+  --border: #e0d8ce;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; line-height: 1.85; font-size: 15px; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: var(--dark);
+  line-height: 1.8;
+  font-size: 14.5px;
+}
 
-/* PAGE HEADER */
-.page-header { background: linear-gradient(135deg, #2d5a27 0%, #3d6e35 60%, #2d5a27 100%); color: white; padding: 32px 40px; text-align: center; border-bottom: 3px solid #c9973a; }
-.page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: 0.01em; }
-.page-header .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 14px; font-family: 'Inter', sans-serif; }
-.exam-badge { display: inline-block; background: #c9973a; color: #2a2118; font-weight: 700; padding: 6px 20px; border-radius: 4px; font-size: 0.95rem; font-family: 'Inter', sans-serif; }
-.lulus { color: #c9973a; font-style: italic; font-weight: 700; }
+/* ── PAGE HEADER ── */
+.page-header {
+  background: linear-gradient(135deg, var(--ch6-dk) 0%, var(--ch6) 100%);
+  color: white;
+  padding: 28px 40px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.lulus { color: var(--gold); font-style: italic; }
+.page-header .subtitle { font-size: 0.95rem; opacity: 0.88; margin-bottom: 12px; }
+.exam-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  font-weight: 700;
+  padding: 5px 18px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
 
-/* HOW TO USE */
-.how-to-box { background: linear-gradient(135deg, #243d20, #2d5a27); color: white; margin: 24px 32px; padding: 20px 28px; border-radius: 6px; border-left: 6px solid #c9973a; }
-.how-to-box h3 { color: #c9973a; margin-bottom: 10px; font-size: 1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
-.how-to-box ul { padding-left: 20px; }
-.how-to-box li { margin-bottom: 6px; font-size: 0.9rem; line-height: 1.6; font-family: 'Inter', sans-serif; }
+/* ── HOW TO USE ── */
+.how-to-box {
+  background: #faf8f4;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--gold);
+  margin: 20px 32px;
+  padding: 16px 22px;
+  border-radius: 4px;
+}
+.how-to-box h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--ch6-dk);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.how-to-box ul { padding-left: 18px; }
+.how-to-box li { margin-bottom: 4px; font-size: 0.88rem; line-height: 1.6; }
 
-/* TABLE OF CONTENTS */
-.toc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 32px; }
-.toc-card { display: flex; flex-direction: column; align-items: center; padding: 20px 12px; border-radius: 6px; text-decoration: none; color: white; font-weight: 700; transition: transform 0.2s; text-align: center; }
-.toc-card:hover { transform: translateY(-4px); }
-.toc-card .ch-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; line-height: 1; }
-.toc-card .ch-title { font-size: 0.9rem; margin-top: 8px; font-family: 'Inter', sans-serif; }
-.toc-card.ch6 { background: linear-gradient(135deg, #4a7c59, #2d5a27); }
-.toc-card.ch7 { background: linear-gradient(135deg, #c9973a, #a07828); }
-.toc-card.ch8m { background: linear-gradient(135deg, #6b4e2e, #4a3520); }
-.toc-card.ch8c { background: linear-gradient(135deg, #b5533c, #8a3828); }
+/* ── TABLE OF CONTENTS ── */
+.toc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 32px; }
+.toc-card {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 16px 10px; border-radius: 5px;
+  text-decoration: none; color: white; font-weight: 600;
+  transition: transform 0.15s; text-align: center;
+}
+.toc-card:hover { transform: translateY(-3px); }
+.toc-card .ch-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; line-height: 1; }
+.toc-card .ch-title { font-size: 0.85rem; margin-top: 6px; }
+.toc-card.ch6  { background: linear-gradient(135deg, var(--ch6), var(--ch6-dk)); }
+.toc-card.ch7  { background: linear-gradient(135deg, var(--ch7), var(--ch7-dk)); }
+.toc-card.ch8m { background: linear-gradient(135deg, var(--ch8m), var(--ch8m-dk)); }
+.toc-card.ch8c { background: linear-gradient(135deg, var(--ch8c), var(--ch8c-dk)); }
 
-/* CHAPTER CONTAINERS */
-.chapter { margin: 32px; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 16px rgba(45,26,10,0.1); }
-.ch-header { display: flex; align-items: center; gap: 20px; padding: 24px 32px; color: white; }
-.ch-header.ch6 { background: linear-gradient(135deg, #4a7c59, #2d5a27); }
-.ch-header.ch7 { background: linear-gradient(135deg, #c9973a, #a07828); }
-.ch-header.ch8m { background: linear-gradient(135deg, #6b4e2e, #4a3520); }
-.ch-header.ch8c { background: linear-gradient(135deg, #b5533c, #8a3828); }
-.ch-num-big { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 800; opacity: 0.3; line-height: 1; min-width: 80px; }
-.ch-header-text h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 800; }
-.ch-header-text .ch-sub { font-size: 0.9rem; opacity: 0.85; margin-top: 4px; font-family: 'Inter', sans-serif; }
-.ch-body { padding: 28px 32px; background: white; }
+/* ── CHAPTER CONTAINERS ── */
+.chapter { margin: 24px 32px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+.ch-header { display: flex; align-items: center; gap: 16px; padding: 18px 28px; color: white; }
+.ch-header.ch6  { background: linear-gradient(135deg, var(--ch6), var(--ch6-dk)); }
+.ch-header.ch7  { background: linear-gradient(135deg, var(--ch7), var(--ch7-dk)); }
+.ch-header.ch8m { background: linear-gradient(135deg, var(--ch8m), var(--ch8m-dk)); }
+.ch-header.ch8c { background: linear-gradient(135deg, var(--ch8c), var(--ch8c-dk)); }
+.ch-header.qr   { background: linear-gradient(135deg, #2a2118, #4a3520); }
+.ch-num-big { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 800; opacity: 0.25; line-height: 1; min-width: 70px; }
+.ch-header-text h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 800; }
+.ch-header-text .ch-sub { font-size: 0.85rem; opacity: 0.85; margin-top: 3px; }
+.ch-body { padding: 22px 28px; background: #ffffff; }
 
-/* SECTION TITLES */
-.section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; padding: 10px 18px; border-radius: 4px; margin: 28px 0 14px 0; color: white; }
-.section-title.ch6 { background: var(--ch6); }
-.section-title.ch7 { background: var(--ch7); }
+/* ── SECTION TITLES ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  padding: 8px 16px; border-radius: 3px;
+  margin: 22px 0 12px 0; color: white;
+}
+.section-title.ch6  { background: var(--ch6); }
+.section-title.ch7  { background: var(--ch7); }
 .section-title.ch8m { background: var(--ch8m); }
 .section-title.ch8c { background: var(--ch8c); }
+.section-title.qr   { background: #2a2118; border-left: 4px solid var(--gold); }
 
-/* COLORED BOXES */
-.box { border-radius: 6px; padding: 16px 20px; margin: 14px 0; border-left: 5px solid; page-break-inside: avoid; break-inside: avoid; }
-.box-label { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
-.box-remember { background: #fdf7ee; border-color: #c9973a; }
+/* ── CONTENT BOXES ── */
+.box {
+  border-radius: 4px; padding: 13px 18px; margin: 11px 0;
+  border-left: 4px solid; page-break-inside: avoid; break-inside: avoid;
+}
+.box-label {
+  font-family: 'Inter', sans-serif; font-weight: 700;
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 7px;
+}
+/* REMEMBER — gold */
+.box-remember { background: #fdf7ee; border-color: var(--gold); }
 .box-remember .box-label { color: #7a5a10; }
-.box-trick { background: #f5ede4; border-color: #6b4e2e; }
-.box-trick .box-label { color: #4a3520; }
-.box-def { background: #eef4ec; border-color: #4a7c59; }
-.box-def .box-label { color: #2d5a27; }
-.box-example { background: #faf8f4; border-color: #8fad88; }
-.box-example .box-label { color: #4a7c59; }
-.box-alert { background: #fdf0ec; border-color: #b5533c; }
-.box-alert .box-label { color: #7a2a1a; }
-.box-tophat { background: #f5ede4; border-color: #c97b5a; }
-.box-tophat .box-label { color: #6b4e2e; }
+/* DEFINITION — sage green */
+.box-def { background: var(--ch6-lt); border-color: var(--ch6); }
+.box-def .box-label { color: var(--ch6-dk); }
+/* ALERT — terracotta */
+.box-alert { background: var(--ch8c-lt); border-color: var(--ch8c); }
+.box-alert .box-label { color: var(--ch8c-dk); }
+/* EXAMPLE — light sage */
+.box-example { background: #f5f8f4; border-color: #8fad88; }
+.box-example .box-label { color: var(--ch6); }
 
-/* EQUATION BOXES */
-.equation { background: linear-gradient(135deg, #2a2118, #4a3520); color: white; border-radius: 6px; padding: 20px 28px; margin: 16px 0; text-align: center; }
-.eq-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-.eq-main { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #c9973a; }
-.eq-words { font-family: 'Inter', sans-serif; font-size: 0.9rem; opacity: 0.8; margin-top: 6px; }
+/* ── EQUATION BOXES ── */
+.equation {
+  background: linear-gradient(135deg, #2a2118, #4a3520);
+  color: white; border-radius: 5px; padding: 16px 24px;
+  margin: 12px 0; text-align: center;
+  page-break-inside: avoid; break-inside: avoid;
+}
+.eq-label { font-size: 0.75rem; opacity: 0.65; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.eq-main { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+.eq-words { font-size: 0.85rem; opacity: 0.78; margin-top: 5px; }
 
-/* TABLES */
-.compare-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; font-family: 'Inter', sans-serif; }
-.compare-table th { padding: 10px 14px; color: white; text-align: left; font-weight: 700; }
-.compare-table td { padding: 10px 14px; border-bottom: 1px solid #e8e0d4; vertical-align: top; }
+/* ── TABLES ── */
+.compare-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88rem; }
+.compare-table th { padding: 9px 13px; color: white; text-align: left; font-weight: 600; }
+.compare-table td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .compare-table tr:last-child td { border-bottom: none; }
 .compare-table tr:nth-child(even) td { background: #faf8f4; }
-.th-ch6 { background: var(--ch6); }
-.th-ch7 { background: var(--ch7); }
+.th-ch6  { background: var(--ch6); }
+.th-ch7  { background: var(--ch7); }
 .th-ch8m { background: var(--ch8m); }
 .th-ch8c { background: var(--ch8c); }
-.th-blue { background: #4a7c59; }
-.th-purple { background: #6b4e2e; }
+.th-dark { background: #2a2118; }
 .th-gray { background: #5c4a3a; }
 
-/* LISTS */
-.bullet-list { padding-left: 22px; margin: 8px 0; }
-.bullet-list li { margin-bottom: 6px; line-height: 1.7; }
-.bullet-list.ch6 li::marker { color: var(--ch6); }
-.bullet-list.ch7 li::marker { color: var(--ch7); }
+/* ── LISTS ── */
+.bullet-list { padding-left: 20px; margin: 6px 0; }
+.bullet-list li { margin-bottom: 5px; line-height: 1.75; }
+.bullet-list.ch6  li::marker { color: var(--ch6); }
+.bullet-list.ch7  li::marker { color: var(--ch7); }
 .bullet-list.ch8m li::marker { color: var(--ch8m); }
 .bullet-list.ch8c li::marker { color: var(--ch8c); }
-.steps { padding-left: 22px; margin: 10px 0; }
-.steps li { margin-bottom: 8px; line-height: 1.7; }
-.steps.ch6 li::marker { color: var(--ch6); font-weight: 800; }
-.steps.ch7 li::marker { color: var(--ch7); font-weight: 800; }
-.steps.ch8m li::marker { color: var(--ch8m); font-weight: 800; }
-.steps.ch8c li::marker { color: var(--ch8c); font-weight: 800; }
+.steps { padding-left: 20px; margin: 8px 0; }
+.steps li { margin-bottom: 6px; line-height: 1.75; }
+.steps.ch6  li::marker { color: var(--ch6); font-weight: 700; }
+.steps.ch7  li::marker { color: var(--ch7); font-weight: 700; }
+.steps.ch8m li::marker { color: var(--ch8m); font-weight: 700; }
+.steps.ch8c li::marker { color: var(--ch8c); font-weight: 700; }
 
-/* TWO-COLUMN LAYOUT */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+/* ── TWO-COLUMN ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
 
-/* ATP BADGE */
-.atp-badge { display: inline-block; background: linear-gradient(135deg, #c9973a, #a07828); color: white; font-weight: 700; padding: 2px 10px; border-radius: 4px; font-size: 0.85rem; font-family: 'Inter', sans-serif; }
+/* ── ATP BADGE ── */
+.atp-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ch7), var(--ch7-dk));
+  color: white; font-weight: 700; padding: 2px 9px; border-radius: 3px; font-size: 0.82rem;
+}
 
-/* TOPHAT QUESTION STYLE */
-.tophat-q { background: #f5ede4; border: 2px solid #c97b5a; border-radius: 6px; padding: 16px 20px; margin: 12px 0; }
-.tophat-q .q-text { font-weight: 600; margin-bottom: 10px; color: #2a2118; font-family: 'Playfair Display', serif; }
-.tophat-q .q-answer { background: #eef4ec; border-left: 4px solid #4a7c59; padding: 8px 14px; border-radius: 4px; font-weight: 600; color: #2d5a27; font-family: 'Inter', sans-serif; }
-.tophat-q .q-wrong { background: #fdf0ec; border-left: 4px solid #b5533c; padding: 8px 14px; border-radius: 4px; font-weight: 600; color: #7a2a1a; margin-top: 6px; font-family: 'Inter', sans-serif; }
-.tophat-q .q-explain { font-size: 0.88rem; color: #5c4a3a; margin-top: 8px; font-style: italic; font-family: 'Inter', sans-serif; }
+/* ── MNEMONIC BOXES (end section only) ── */
+.mnemonic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+.mnemonic-card {
+  background: #fdf7ee; border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: 4px; padding: 14px 16px;
+  page-break-inside: avoid; break-inside: avoid;
+}
+.mnemonic-card .mc-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.82rem; font-weight: 700; color: var(--ch6-dk);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
+}
+.mnemonic-card .mc-trick {
+  font-weight: 700; color: var(--dark); margin-bottom: 4px; font-size: 0.95rem;
+}
+.mnemonic-card .mc-explain { font-size: 0.88rem; color: var(--mid); line-height: 1.65; }
 
-/* QUICK REFERENCE SECTION */
-.qr-section { margin: 32px; }
-
+/* ── PRINT STYLES ── */
 @media print {
-  .chapter, .box, .tophat-q, .compare-table tr { page-break-inside: avoid; break-inside: avoid; }
+  body { font-size: 13px; background: white; }
+  .page-header { padding: 20px 30px; }
+  .chapter, .box, .equation, .mnemonic-card, .compare-table tr {
+    page-break-inside: avoid; break-inside: avoid;
+  }
   .section-title, .ch-header { page-break-after: avoid; break-after: avoid; }
   .ch-header + .ch-body { page-break-before: avoid; break-before: avoid; }
+  .chapter { margin: 16px 20px; }
+  .ch-body { padding: 16px 20px; }
+  .how-to-box, .toc { margin-left: 20px; margin-right: 20px; }
+  a { text-decoration: none; color: inherit; }
 }
 </style>
 </head>
@@ -149,20 +227,18 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
 <div class="page-header">
   <h1>Bio 1320 — <span class="lulus">Lulu's</span> Exam 2 Study Guide</h1>
   <div class="subtitle">Chapters 6 · 7 · 8 · Cancer &nbsp;|&nbsp; Essentials of the Living World — Johnson &amp; Bergh</div>
-  <div class="exam-badge">📅 Exam 2 — March 30, 2026</div>
+  <div class="exam-badge">Exam 2 — March 30, 2026</div>
 </div>
 
 <!-- HOW TO USE -->
 <div class="how-to-box">
-  <h3>📌 How to Use This Guide</h3>
+  <h3>How to Use This Guide</h3>
   <ul>
-    <li>🟡 <strong>GOLD boxes</strong> = ⭐ REMEMBER — highest-priority exam facts</li>
-    <li>🟤 <strong>BROWN boxes</strong> = 🧠 MEMORY TRICK — mnemonics to make it stick</li>
-    <li>🟢 <strong>GREEN boxes</strong> = 📖 DEFINITION — exact vocabulary terms</li>
-    <li>🔴 <strong>RED boxes</strong> = ⚠️ ALERT — common mistakes &amp; tricky exam points</li>
-    <li>🌿 <strong>SAGE boxes</strong> = 💡 EXAMPLE — real-world connections</li>
-    <li>🟠 <strong>CLAY boxes</strong> = 🎓 TOPHAT — actual professor in-class questions</li>
-    <li>⬛ <strong>DARK boxes</strong> = ⚗️ EQUATIONS — know these cold!</li>
+    <li><strong>Gold boxes</strong> = Key facts — highest priority for the exam</li>
+    <li><strong>Green boxes</strong> = Definitions — exact vocabulary</li>
+    <li><strong>Red boxes</strong> = Watch out — common mistakes and tricky points</li>
+    <li><strong>Dark boxes</strong> = Equations — know these cold</li>
+    <li>Mnemonics are collected at the very end — use them or skip them</li>
   </ul>
 </div>
 
@@ -170,19 +246,19 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
 <div class="toc">
   <a href="#ch6" class="toc-card ch6">
     <div class="ch-num">6</div>
-    <div class="ch-title">☀️ Photosynthesis</div>
+    <div class="ch-title">Photosynthesis</div>
   </a>
   <a href="#ch7" class="toc-card ch7">
     <div class="ch-num">7</div>
-    <div class="ch-title">⚡ Cell Respiration</div>
+    <div class="ch-title">Cell Respiration</div>
   </a>
   <a href="#ch8m" class="toc-card ch8m">
     <div class="ch-num">8A</div>
-    <div class="ch-title">🔬 Mitosis</div>
+    <div class="ch-title">Mitosis</div>
   </a>
   <a href="#ch8c" class="toc-card ch8c">
     <div class="ch-num">8B</div>
-    <div class="ch-title">🎗️ Cancer</div>
+    <div class="ch-title">Cancer</div>
   </a>
 </div>
 
@@ -193,36 +269,32 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
   <div class="ch-header ch6">
     <div class="ch-num-big">6</div>
     <div class="ch-header-text">
-      <h2>☀️ Chapter 6: Photosynthesis</h2>
-      <div class="ch-sub">Acquiring Energy from the Sun · Chloroplasts · Light Reactions · Calvin Cycle · Photorespiration</div>
+      <h2>Chapter 6: Photosynthesis</h2>
+      <div class="ch-sub">Light Energy · Chloroplasts · Light Reactions · Calvin Cycle</div>
     </div>
   </div>
   <div class="ch-body">
 
-    <div class="section-title ch6">⚗️ The Master Equation — KNOW THIS COLD!</div>
+    <div class="section-title ch6">The Master Equation</div>
     <div class="equation">
       <div class="eq-label">Photosynthesis Overall Equation</div>
       <div class="eq-main">6CO₂ + 6H₂O + Light Energy → C₆H₁₂O₆ + 6O₂</div>
       <div class="eq-words">Carbon Dioxide + Water + Light → Glucose + Oxygen</div>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Key Facts About Photosynthesis</div>
+      <div class="box-label">Key Facts</div>
       <ul class="bullet-list ch6">
-        <li><strong>Endergonic reaction</strong> — REQUIRES energy input (light) to run</li>
+        <li>Photosynthesis is the process by which solar energy is trapped and stored as chemical energy in the bonds of glucose</li>
+        <li><strong>Endergonic reaction</strong> — requires energy input (light) to run</li>
         <li>Takes place in <strong>chloroplasts</strong> (found in plant cells and algae)</li>
-        <li>Produces glucose (food) and releases O₂ as a byproduct</li>
-        <li>The OPPOSITE of cellular respiration</li>
+        <li>Autotrophs (producers) carry out photosynthesis — essential to sustaining all life on Earth</li>
+        <li>The overall reaction is the reverse of cellular respiration</li>
       </ul>
     </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick</div>
-      <p><strong>"Plants COOK with sunlight."</strong> Ingredients go IN (CO₂ + H₂O + light), food comes OUT (glucose). The O₂ we breathe is just the exhaust from cooking. Endergonic = needs energy = like cooking needs heat.</p>
-    </div>
 
-    <div class="section-title ch6">🍃 Leaf &amp; Chloroplast Structure</div>
+    <div class="section-title ch6">Plant Anatomy &amp; Chloroplast Structure</div>
     <div class="box box-alert">
-      <div class="box-label">⚠️ Exam Alert — Know WHERE each reaction occurs!</div>
-      <p>The professor WILL ask where each stage of photosynthesis takes place. This is a very common exam question.</p>
+      <div class="box-label">Know WHERE each reaction occurs — this is a common exam question</div>
     </div>
     <table class="compare-table">
       <tr>
@@ -230,78 +302,33 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
         <th class="th-ch6">Location</th>
         <th class="th-ch6">Function</th>
       </tr>
-      <tr><td><strong>Mesophyll</strong></td><td>Middle layer of leaf</td><td>Main site of photosynthesis; contains most chloroplasts</td></tr>
-      <tr><td><strong>Stomata</strong></td><td>Tiny pores on underside of leaf</td><td>Allow CO₂ IN and O₂ OUT; release water vapor</td></tr>
-      <tr><td><strong>Guard cells</strong></td><td>Surround each stoma</td><td>Open/close stomata to regulate gas exchange</td></tr>
+      <tr><td><strong>Mesophyll cells</strong></td><td>Middle layer of leaf</td><td>Main site of photosynthesis; each cell contains several chloroplasts</td></tr>
+      <tr><td><strong>Stomata</strong></td><td>Pores on leaf surface</td><td>Gas exchange — CO₂ enters, O₂ exits; water vapor released</td></tr>
       <tr><td><strong>Thylakoid membrane</strong></td><td>Stacked disc membranes inside chloroplast</td><td><strong>Light-dependent reactions</strong> occur here</td></tr>
-      <tr><td><strong>Thylakoid lumen</strong></td><td>Inside the thylakoid discs</td><td>Protons (H⁺) accumulate here to power ATP synthesis</td></tr>
-      <tr><td><strong>Granum (pl: grana)</strong></td><td>Stack of thylakoids</td><td>Houses photosystems and electron transport chain</td></tr>
+      <tr><td><strong>Granum (pl: grana)</strong></td><td>Stack of thylakoids</td><td>Houses photosystems and the electron transport chain</td></tr>
       <tr><td><strong>Stroma</strong></td><td>Fluid surrounding thylakoids</td><td><strong>Calvin cycle (light-independent reactions)</strong> occur here</td></tr>
     </table>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Where Things Happen</div>
-      <p><strong>"THYLAKOID = LIGHT · STROMA = SUGAR"</strong><br>
-      <em>THY-lakoid = THY light reactions</em> (yours = light). <em>STROMA = STROng sugar factory</em>. Light hits the thylakoid → energy goes to stroma → sugar is made.</p>
-    </div>
 
-    <div class="section-title ch6">🌈 Chlorophyll &amp; Light Absorption</div>
-    <table class="compare-table">
-      <tr>
-        <th class="th-ch6">Pigment</th>
-        <th class="th-ch6">Color Absorbed</th>
-        <th class="th-ch6">Color Reflected</th>
-        <th class="th-ch6">Role</th>
-      </tr>
-      <tr><td><strong>Chlorophyll a</strong></td><td>Red &amp; Blue-violet</td><td>Green (why plants look green!)</td><td>PRIMARY pigment — directly involved in light reactions; passes electrons to reaction center</td></tr>
-      <tr><td><strong>Chlorophyll b</strong></td><td>Blue &amp; orange-red</td><td>Yellow-green</td><td>Accessory pigment — captures light and passes energy to chlorophyll a</td></tr>
-      <tr><td><strong>Carotenoids</strong></td><td>Blue &amp; green</td><td>Yellow, orange, red</td><td>Accessory pigments — broaden light range absorbed; protect from excess light</td></tr>
-    </table>
+    <div class="section-title ch6">Light &amp; Photosynthetic Pigments</div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Key Light Facts</div>
+      <div class="box-label">Key Light Facts</div>
       <ul class="bullet-list ch6">
-        <li><strong>Blue light</strong> has MORE energy than red light (shorter wavelength = higher energy)</li>
-        <li><strong>Green light</strong> is the LEAST effective for photosynthesis — it is reflected, not absorbed</li>
-        <li>Chlorophyll ABSORBS red and blue light; REFLECTS green</li>
-        <li>Light wavelength is measured in <strong>nanometers (nm)</strong></li>
+        <li>The sun emits energy in waves — <strong>shorter wavelengths have higher energy</strong> than longer wavelengths</li>
+        <li>Different pigments specialize in absorbing different wavelengths</li>
+        <li><strong>Chlorophyll a</strong> is the primary photosynthetic pigment — absorbs mostly <strong>blue and red light</strong></li>
+        <li>Green light is reflected (not absorbed) — this is why plants appear green</li>
+        <li>A <strong>photosystem</strong> is a large protein structure in the thylakoid membrane consisting of antenna pigments and a reaction center containing chlorophyll</li>
       </ul>
     </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Which light is strongest?</div>
-      <p><strong>"BLUE = BETTER"</strong> — Blue light has a shorter wavelength and MORE energy. Think of a blue flame (hotter) vs. a red flame (cooler). Blue = more powerful = more energy for photosynthesis.</p>
-    </div>
 
-    <div class="section-title ch6">💡 Stage 1: Light-Dependent Reactions</div>
+    <div class="section-title ch6">Stage 1: Light-Dependent Reactions</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Light-dependent reactions</strong> = the first stage of photosynthesis that uses light energy to split water and produce ATP and NADPH. Occurs in the <strong>thylakoid membrane</strong>.</p>
+      <div class="box-label">Definition</div>
+      <p><strong>Light-dependent reactions</strong> = the first stage of photosynthesis. Uses light energy to split water and produce ATP and NADPH. Occurs in the <strong>thylakoid membrane</strong>.</p>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Reactants &amp; Products of the Light Reactions</div>
-      <div class="two-col">
-        <div>
-          <strong style="color:#dc2626;">REACTANTS (go IN):</strong>
-          <ul class="bullet-list ch6">
-            <li>💧 Water (H₂O)</li>
-            <li>☀️ Light energy</li>
-            <li>ADP + Pᵢ (to make ATP)</li>
-            <li>NADP⁺ (to make NADPH)</li>
-          </ul>
-        </div>
-        <div>
-          <strong style="color:#16a34a;">PRODUCTS (come OUT):</strong>
-          <ul class="bullet-list ch6">
-            <li>⚡ ATP (energy carrier)</li>
-            <li>⚡ NADPH (hydrogen carrier)</li>
-            <li>💨 O₂ (released as gas — the O₂ we breathe!)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title ch6">⚡ Photosystems I &amp; II — The Light Reaction Machinery</div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ Confusing but Important!</div>
-      <p>Photosystem II comes BEFORE Photosystem I in the actual sequence. They were named in the order they were discovered, not the order they work!</p>
+      <div class="box-label">What Happens — Two Photosystems Working in Sequence</div>
+      <p>Photosynthesis involves 2 processes: (1) light-dependent — splitting of H₂O to form O₂ and H; (2) light-independent — combining H and CO₂ to form sugar.</p>
     </div>
     <table class="compare-table">
       <tr>
@@ -312,9 +339,9 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
       </tr>
       <tr>
         <td><strong>What happens</strong></td>
-        <td>Light hits chlorophyll → water is SPLIT → O₂ released → electrons energized</td>
-        <td>Energized electrons pass through carrier molecules → protons pumped into thylakoid → ATP made via chemiosmosis</td>
-        <td>Electrons re-energized by light → passed to NADP⁺ → forms NADPH</td>
+        <td>Light hits chlorophyll → water is split → O₂ released → electrons energized</td>
+        <td>Energized electrons pass through carrier molecules → protons pumped → ATP made via chemiosmosis</td>
+        <td>Electrons re-energized by light → NADP⁺ reduced → forms NADPH</td>
       </tr>
       <tr>
         <td><strong>Products</strong></td>
@@ -323,37 +350,40 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
         <td>NADPH</td>
       </tr>
     </table>
+    <div class="box box-alert">
+      <div class="box-label">Note — Photosystem numbering</div>
+      <p>Photosystem II comes <strong>before</strong> Photosystem I in the actual sequence. They were named in the order they were discovered, not the order they work.</p>
+    </div>
     <div class="box box-def">
-      <div class="box-label">📖 Key Terms — Light Reactions</div>
+      <div class="box-label">Key Terms — Light Reactions</div>
       <ul class="bullet-list ch6">
-        <li><strong>Chemiosmosis</strong> = protons flow through ATP synthase (like water through a turbine) to generate ATP</li>
-        <li><strong>ATP synthase</strong> = the protein channel that protons flow through; makes ATP as they pass</li>
-        <li><strong>Photophosphorylation</strong> = using light energy to add a phosphate to ADP → making ATP</li>
+        <li><strong>Chemiosmosis</strong> = protons flow through ATP synthase to generate ATP</li>
+        <li><strong>ATP synthase</strong> = the protein channel protons flow through; makes ATP as they pass</li>
         <li><strong>NADPH</strong> = energy carrier that carries hydrogen atoms to the Calvin cycle</li>
         <li><strong>Photolysis</strong> = splitting of water by light energy in PSII</li>
       </ul>
     </div>
 
-    <div class="section-title ch6">🔄 Stage 2: The Calvin Cycle (Light-Independent Reactions)</div>
+    <div class="section-title ch6">Stage 2: The Calvin Cycle (Light-Independent Reactions)</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Calvin Cycle</strong> = the second stage of photosynthesis; uses ATP and NADPH from the light reactions to convert CO₂ into glucose. Occurs in the <strong>stroma</strong>. Also called <strong>C₃ photosynthesis</strong> because the first product is a 3-carbon molecule (G3P).</p>
+      <div class="box-label">Definition</div>
+      <p><strong>Calvin Cycle</strong> = the second stage of photosynthesis. Uses ATP and NADPH from the light reactions to convert CO₂ into glucose. Occurs in the <strong>stroma</strong>.</p>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Reactants &amp; Products of the Calvin Cycle</div>
+      <div class="box-label">Reactants &amp; Products</div>
       <div class="two-col">
         <div>
-          <strong style="color:#dc2626;">REACTANTS (go IN):</strong>
+          <strong>REACTANTS (in):</strong>
           <ul class="bullet-list ch6">
-            <li>🌬️ CO₂ (from air through stomata)</li>
-            <li>⚡ ATP (from light reactions)</li>
-            <li>⚡ NADPH (from light reactions)</li>
+            <li>CO₂ (from air through stomata)</li>
+            <li>ATP (from light reactions)</li>
+            <li>NADPH (from light reactions)</li>
           </ul>
         </div>
         <div>
-          <strong style="color:#16a34a;">PRODUCTS (come OUT):</strong>
+          <strong>PRODUCTS (out):</strong>
           <ul class="bullet-list ch6">
-            <li>🍬 G3P → Glucose (C₆H₁₂O₆)</li>
+            <li>G3P → Glucose (C₆H₁₂O₆)</li>
             <li>ADP + Pᵢ (returned to light reactions)</li>
             <li>NADP⁺ (returned to light reactions)</li>
           </ul>
@@ -361,85 +391,16 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
       </div>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ The 3 Steps of the Calvin Cycle</div>
+      <div class="box-label">The 3 Steps of the Calvin Cycle</div>
       <ol class="steps ch6">
         <li><strong>Carbon Fixation:</strong> CO₂ is attached to RuBP (5-carbon) by the enzyme <strong>RuBisCO</strong> → makes a 6-carbon compound that immediately splits into two 3-carbon molecules (3-PGA)</li>
         <li><strong>Reduction:</strong> ATP and NADPH are used to convert 3-PGA into <strong>G3P</strong> (glyceraldehyde-3-phosphate) — the actual sugar product</li>
         <li><strong>Regeneration of RuBP:</strong> Most G3P is used to regenerate RuBP (using ATP) so the cycle can continue; some G3P exits to make glucose</li>
       </ol>
     </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Calvin Cycle</div>
-      <p><strong>"CATCH · REDUCE · RECYCLE"</strong><br>
-      1. CATCH the CO₂ (carbon fixation by RuBisCO)<br>
-      2. REDUCE it to sugar (G3P) using ATP + NADPH<br>
-      3. RECYCLE the RuBP so the cycle keeps going</p>
-    </div>
-
-    <div class="section-title ch6">🌵 Section 6.4: Photorespiration — Putting the Brakes on Photosynthesis</div>
-    <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Photorespiration</strong> = a wasteful process where RuBisCO accidentally grabs O₂ instead of CO₂, producing a 2-carbon compound that must be broken down (wasting ATP). It reduces photosynthesis efficiency by up to 25%.</p>
-    </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Why Does Photorespiration Happen?</div>
-      <ul class="bullet-list ch6">
-        <li>RuBisCO can bind to EITHER CO₂ or O₂ — it's not perfectly selective</li>
-        <li>When O₂ levels are high (hot, dry days when stomata close), RuBisCO grabs O₂ instead of CO₂</li>
-        <li>This produces a 2-carbon molecule instead of G3P — a waste product</li>
-        <li>The plant must spend ATP to break down this waste product</li>
-        <li>Net result: less glucose made, more ATP wasted</li>
-      </ul>
-    </div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ C₃ vs. C₄ vs. CAM Plants — Solutions to Photorespiration</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch6">Plant Type</th>
-          <th class="th-ch6">Examples</th>
-          <th class="th-ch6">Strategy</th>
-          <th class="th-ch6">Best Climate</th>
-        </tr>
-        <tr>
-          <td><strong>C₃ Plants</strong></td>
-          <td>Wheat, rice, soybeans, most trees</td>
-          <td>Standard Calvin cycle — first product is a 3-carbon molecule (3-PGA)</td>
-          <td>Cool, moist climates — photorespiration is less of a problem</td>
-        </tr>
-        <tr>
-          <td><strong>C₄ Plants</strong></td>
-          <td>Corn, sugarcane, crabgrass</td>
-          <td>Pre-fix CO₂ into a 4-carbon molecule in mesophyll cells, then deliver concentrated CO₂ to bundle sheath cells where Calvin cycle runs — keeps O₂ away from RuBisCO</td>
-          <td>Hot, sunny climates — very efficient</td>
-        </tr>
-        <tr>
-          <td><strong>CAM Plants</strong></td>
-          <td>Cacti, succulents, pineapple</td>
-          <td>Open stomata at NIGHT to collect CO₂; store it; run Calvin cycle during the day with stomata CLOSED (saves water)</td>
-          <td>Hot, dry deserts — water conservation is key</td>
-        </tr>
-      </table>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — C₃ vs. C₄ vs. CAM</div>
-      <p><strong>"3 = Normal · 4 = Efficient · CAM = Night Owl"</strong><br>
-      C₃ = regular plants (3-carbon first product). C₄ = corn and sugarcane (4-carbon trick to avoid photorespiration). CAM = cactus (opens stomata at night to save water — like a night shift worker).</p>
-    </div>
-
-    <div class="section-title ch6">🎓 Professor's TopHat Questions — Chapter 6</div>
-    <div class="tophat-q">
-      <div class="q-text">Which wavelength of light is most effective for photosynthesis?</div>
-      <div class="q-answer">✅ Blue and red light (NOT green — green is reflected)</div>
-      <div class="q-explain">Chlorophyll absorbs blue and red light most strongly. Green light is reflected, which is why plants look green.</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">Where does the Calvin cycle occur?</div>
-      <div class="q-answer">✅ In the stroma of the chloroplast</div>
-      <div class="q-explain">Light reactions = thylakoid membrane. Calvin cycle = stroma. Know both!</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">What is the role of water in the light reactions?</div>
-      <div class="q-answer">✅ Water is split (photolysis) to provide electrons to replace those lost from PSII, and O₂ is released as a byproduct</div>
+      <div class="box-label">Role of ATP and NADPH in the Calvin Cycle</div>
+      <p>ATP provides the energy and NADPH provides the hydrogen atoms needed to reduce CO₂ into G3P (sugar). Both come from the light reactions and are recycled back as ADP and NADP⁺ when the Calvin cycle runs.</p>
     </div>
 
   </div><!-- end ch6 body -->
@@ -452,52 +413,44 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
   <div class="ch-header ch7">
     <div class="ch-num-big">7</div>
     <div class="ch-header-text">
-      <h2>⚡ Chapter 7: Cellular Respiration</h2>
-      <div class="ch-sub">How Cells Harvest Energy from Food · Glycolysis · Krebs Cycle · ETC · Fermentation</div>
+      <h2>Chapter 7: Cellular Respiration</h2>
+      <div class="ch-sub">How Cells Release Energy · Glycolysis · Krebs Cycle · ETC · Fermentation</div>
     </div>
   </div>
   <div class="ch-body">
 
-    <div class="section-title ch7">⚗️ The Master Equation — KNOW THIS COLD!</div>
+    <div class="section-title ch7">The Master Equation</div>
     <div class="equation">
       <div class="eq-label">Cellular Respiration Overall Equation</div>
       <div class="eq-main">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 36 ATP</div>
       <div class="eq-words">Glucose + Oxygen → Carbon Dioxide + Water + Energy (ATP)</div>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Key Facts About Cellular Respiration</div>
+      <div class="box-label">Key Facts</div>
       <ul class="bullet-list ch7">
-        <li><strong>Exergonic reaction</strong> — RELEASES energy (stored in glucose) as ATP</li>
+        <li>Molecules in food (such as glucose) are used to produce ATP — the energy carrier used to power cell activities</li>
+        <li>Cells cannot survive without ATP</li>
+        <li><strong>Exergonic reaction</strong> — releases energy stored in glucose as ATP</li>
+        <li>Aerobic cellular respiration is used by all plants and animals, as well as many microbes</li>
         <li>Occurs in the <strong>cytoplasm + mitochondria</strong></li>
-        <li>ALL living cells do cellular respiration (plants too!)</li>
-        <li>The OPPOSITE of photosynthesis</li>
-        <li>Do NOT confuse with <em>breathing</em> — cellular respiration is a chemical process inside cells</li>
+        <li>Do not confuse with breathing — cellular respiration is a chemical process inside cells</li>
       </ul>
     </div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ Photosynthesis vs. Cell Respiration — They're OPPOSITES!</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch6">Photosynthesis</th>
-          <th class="th-ch7">Cell Respiration</th>
-        </tr>
-        <tr><td>Uses CO₂ + H₂O + Light</td><td>Uses Glucose + O₂</td></tr>
-        <tr><td>Produces Glucose + O₂</td><td>Produces CO₂ + H₂O + ATP</td></tr>
-        <tr><td>Endergonic (needs energy)</td><td>Exergonic (releases energy)</td></tr>
-        <tr><td>Occurs in chloroplasts</td><td>Occurs in cytoplasm + mitochondria</td></tr>
-        <tr><td>Only in plants/algae</td><td>In ALL living cells (plants too!)</td></tr>
-      </table>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick</div>
-      <p><strong>"Respiration is Photosynthesis BACKWARDS."</strong> The reactants of one are the products of the other. They're like breathing in and breathing out — two sides of the same coin.</p>
-    </div>
 
-    <div class="section-title ch7">📍 WHERE Does Each Step Happen? — MAJOR EXAM TOPIC</div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ This is a MAJOR exam question — know the locations!</div>
-      <p>The professor specifically asks: "Where in the mitochondria does glycolysis occur? What about cell respiration or fermentation?" Know the exact location of every step!</p>
-    </div>
+    <div class="section-title ch7">Photosynthesis vs. Cellular Respiration</div>
+    <table class="compare-table">
+      <tr>
+        <th class="th-ch6">Photosynthesis</th>
+        <th class="th-ch7">Cellular Respiration</th>
+      </tr>
+      <tr><td>Uses CO₂ + H₂O + Light</td><td>Uses Glucose + O₂</td></tr>
+      <tr><td>Produces Glucose + O₂</td><td>Produces CO₂ + H₂O + ATP</td></tr>
+      <tr><td>Endergonic (requires energy)</td><td>Exergonic (releases energy)</td></tr>
+      <tr><td>Occurs in chloroplasts</td><td>Occurs in cytoplasm + mitochondria</td></tr>
+      <tr><td>Only in plants and algae</td><td>In ALL living cells (plants too)</td></tr>
+    </table>
+
+    <div class="section-title ch7">WHERE Each Step Happens — Know the Locations</div>
     <table class="compare-table">
       <tr>
         <th class="th-ch7">Stage</th>
@@ -505,79 +458,75 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
         <th class="th-ch7">Requires O₂?</th>
         <th class="th-ch7">ATP Made</th>
       </tr>
-      <tr><td><strong>Glycolysis</strong></td><td>🔵 <strong>Cytoplasm</strong> (NOT in mitochondria!)</td><td>No</td><td><span class="atp-badge">2 ATP</span></td></tr>
-      <tr><td><strong>Pyruvate → Acetyl-CoA</strong> (Transition)</td><td>🟠 <strong>Mitochondrial matrix</strong></td><td>Yes</td><td>0 ATP (makes NADH)</td></tr>
-      <tr><td><strong>Krebs Cycle</strong></td><td>🟠 <strong>Mitochondrial matrix</strong></td><td>Yes</td><td><span class="atp-badge">2 ATP</span></td></tr>
-      <tr><td><strong>Electron Transport Chain (ETC)</strong></td><td>🔴 <strong>Inner mitochondrial membrane</strong></td><td>Yes (O₂ is final electron acceptor)</td><td><span class="atp-badge">34 ATP</span></td></tr>
-      <tr><td><strong>Fermentation</strong></td><td>🔵 <strong>Cytoplasm</strong></td><td>No (anaerobic!)</td><td><span class="atp-badge">0 ATP</span> (only glycolysis ATP = 2)</td></tr>
+      <tr><td><strong>Glycolysis</strong></td><td><strong>Cytoplasm</strong> (NOT in mitochondria)</td><td>No</td><td><span class="atp-badge">2 ATP</span></td></tr>
+      <tr><td><strong>Pyruvate → Acetyl-CoA</strong> (Transition)</td><td><strong>Mitochondrial matrix</strong></td><td>Yes</td><td>0 ATP (makes NADH)</td></tr>
+      <tr><td><strong>Krebs Cycle</strong></td><td><strong>Mitochondrial matrix</strong></td><td>Yes</td><td><span class="atp-badge">2 ATP</span></td></tr>
+      <tr><td><strong>Electron Transport Chain (ETC)</strong></td><td><strong>Inner mitochondrial membrane</strong></td><td>Yes — O₂ is the final electron acceptor</td><td><span class="atp-badge">34 ATP</span></td></tr>
+      <tr><td><strong>Fermentation</strong></td><td><strong>Cytoplasm</strong></td><td>No (anaerobic)</td><td>0 additional (only glycolysis ATP = 2)</td></tr>
     </table>
     <div class="box box-remember">
-      <div class="box-label">⭐ TOTAL ATP from 1 Glucose = 36 ATP</div>
-      <p>Glycolysis: <span class="atp-badge">2</span> + Krebs: <span class="atp-badge">2</span> + ETC: <span class="atp-badge">34</span> = <span class="atp-badge" style="background: linear-gradient(135deg, #16a34a, #15803d); font-size:1rem;">36 ATP TOTAL</span></p>
-      <p style="margin-top:8px;"><strong>Fermentation only = 2 ATP</strong> (just from glycolysis — no Krebs or ETC)</p>
+      <div class="box-label">Total ATP from 1 Glucose = 36 ATP</div>
+      <p>Glycolysis: <span class="atp-badge">2</span> + Krebs: <span class="atp-badge">2</span> + ETC: <span class="atp-badge">34</span> = <span class="atp-badge">36 ATP total</span></p>
+      <p style="margin-top:7px;"><strong>Fermentation only = 2 ATP</strong> (just from glycolysis — no Krebs or ETC)</p>
     </div>
 
-    <div class="section-title ch7">1️⃣ Glycolysis — Splitting Glucose</div>
+    <div class="section-title ch7">Stage 1: Glycolysis — Splitting Glucose</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Glycolysis</strong> = "glucose splitting" — the breakdown of 1 glucose molecule into 2 pyruvate molecules. Occurs in the <strong>cytoplasm</strong>. Does NOT require oxygen. Happens in ALL cells (aerobic and anaerobic).</p>
+      <div class="box-label">Definition</div>
+      <p><strong>Glycolysis</strong> = "glucose splitting" — the breakdown of 1 glucose molecule into 2 pyruvate molecules. Occurs in the <strong>cytoplasm</strong>. Does not require oxygen. Happens in all cells (aerobic and anaerobic). "Glycolysis means splitting of glucose."</p>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Glycolysis Summary</div>
+      <div class="box-label">Glycolysis Summary</div>
       <div class="two-col">
         <div>
-          <strong style="color:#dc2626;">REACTANTS (go IN):</strong>
+          <strong>REQUIRES:</strong>
           <ul class="bullet-list ch7">
-            <li>1 Glucose (6-carbon)</li>
+            <li>1 glucose</li>
             <li>2 NAD⁺</li>
-            <li>2 ADP + 2 Pᵢ</li>
+            <li>2 ADP</li>
           </ul>
         </div>
         <div>
-          <strong style="color:#d97706;">PRODUCTS (come OUT):</strong>
+          <strong>YIELDS:</strong>
           <ul class="bullet-list ch7">
-            <li>2 Pyruvate (3-carbon each)</li>
+            <li>2 pyruvate</li>
             <li>2 NADH (electron carriers)</li>
             <li><span class="atp-badge">2 ATP</span> (net gain)</li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Glycolysis</div>
-      <p><strong>"Glycolysis = 2 for 2"</strong> — 1 glucose splits into 2 pyruvates, and you get 2 ATP. Everything is in 2s! Also: <strong>"Glyco = GLUCOSE · Lysis = SPLIT"</strong> — it literally means glucose splitting.</p>
-    </div>
 
-    <div class="section-title ch7">2️⃣ Pyruvate → Acetyl-CoA (Transition Step)</div>
+    <div class="section-title ch7">Stage 2: Pyruvate → Acetyl-CoA (Transition Step)</div>
     <div class="box box-remember">
-      <div class="box-label">⭐ What Happens in the Transition Step</div>
+      <div class="box-label">What Happens</div>
       <ul class="bullet-list ch7">
         <li>Each pyruvate (3-carbon) loses a CO₂ → becomes a 2-carbon acetyl group</li>
         <li>The acetyl group attaches to CoA → forms <strong>Acetyl-CoA</strong></li>
-        <li>NAD⁺ is reduced to <strong>NADH</strong> (electron carrier)</li>
-        <li>CO₂ is released as a gas (part of the CO₂ you exhale!)</li>
-        <li>Occurs TWICE (once per pyruvate — 2 pyruvates from glycolysis)</li>
+        <li>NAD⁺ is reduced to <strong>NADH</strong></li>
+        <li>CO₂ is released (part of the CO₂ you exhale)</li>
+        <li>Occurs twice — once per pyruvate (2 pyruvates from glycolysis)</li>
         <li>Location: <strong>mitochondrial matrix</strong></li>
       </ul>
     </div>
 
-    <div class="section-title ch7">3️⃣ Krebs Cycle — Extracting More Energy</div>
+    <div class="section-title ch7">Stage 3: Krebs Cycle</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Krebs Cycle</strong> (also called the Citric Acid Cycle) = a series of reactions in the <strong>mitochondrial matrix</strong> that breaks down Acetyl-CoA, releasing CO₂ and producing electron carriers (NADH, FADH₂) and a small amount of ATP.</p>
+      <div class="box-label">Definition</div>
+      <p><strong>Krebs Cycle</strong> (Citric Acid Cycle) = a series of reactions in the <strong>mitochondrial matrix</strong> that breaks down Acetyl-CoA, releasing CO₂ and producing electron carriers (NADH, FADH₂) and a small amount of ATP.</p>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Krebs Cycle — Per 2 Acetyl-CoA (full cycle, both turns)</div>
+      <div class="box-label">Krebs Cycle — Per 2 Acetyl-CoA (both turns of the cycle)</div>
       <div class="two-col">
         <div>
-          <strong style="color:#dc2626;">REACTANTS:</strong>
+          <strong>REACTANTS:</strong>
           <ul class="bullet-list ch7">
             <li>2 Acetyl-CoA (2-carbon each)</li>
             <li>Oxaloacetate (recycled — the "starter")</li>
           </ul>
         </div>
         <div>
-          <strong style="color:#d97706;">PRODUCTS:</strong>
+          <strong>PRODUCTS:</strong>
           <ul class="bullet-list ch7">
             <li>4 CO₂ (released as gas)</li>
             <li>6 NADH (electron carriers)</li>
@@ -588,142 +537,55 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
       </div>
     </div>
     <div class="box box-alert">
-      <div class="box-label">⚠️ CO₂ is produced in TWO places!</div>
-      <p>CO₂ is released during: <strong>(1) the Transition step</strong> (pyruvate → Acetyl-CoA) AND <strong>(2) the Krebs cycle</strong>. This CO₂ diffuses out of the cell and is eventually exhaled. This is where the CO₂ in your breath comes from!</p>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Krebs Cycle</div>
-      <p><strong>"Krebs = Carbon Recycler"</strong> — The Krebs cycle strips carbons off Acetyl-CoA as CO₂ and loads the energy onto NADH and FADH₂ "buses" to carry to the ETC. Think of it as a carbon-stripping factory that charges up energy buses.</p>
+      <div class="box-label">CO₂ is produced in TWO places</div>
+      <p>CO₂ is released during: (1) the <strong>Transition step</strong> (pyruvate → Acetyl-CoA) AND (2) the <strong>Krebs cycle</strong>. This CO₂ eventually diffuses out and is exhaled.</p>
     </div>
 
-    <div class="section-title ch7">4️⃣ Electron Transport Chain (ETC) — The Big ATP Factory</div>
+    <div class="section-title ch7">Stage 4: Electron Transport Chain (ETC)</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
+      <div class="box-label">Definition</div>
       <p><strong>Electron Transport Chain</strong> = a series of protein complexes in the <strong>inner mitochondrial membrane</strong>. NADH and FADH₂ donate electrons, which release energy used to pump protons (H⁺) across the membrane, driving ATP synthesis via <strong>chemiosmosis</strong>.</p>
     </div>
     <ol class="steps ch7">
       <li>NADH and FADH₂ donate their electrons to the ETC</li>
       <li>Electrons pass through protein complexes, releasing energy at each step</li>
-      <li>Energy is used to pump H⁺ ions into the intermembrane space (building up concentration)</li>
-      <li>H⁺ ions flow back through <strong>ATP synthase</strong> (like water through a turbine)</li>
-      <li>ATP synthase uses that flow to produce <strong>34 ATP</strong></li>
-      <li>At the END of the chain, electrons + H⁺ combine with <strong>O₂ → H₂O</strong> (water!)</li>
+      <li>Energy pumps H⁺ ions into the intermembrane space (building up concentration)</li>
+      <li>H⁺ ions flow back through <strong>ATP synthase</strong> → produces <strong>34 ATP</strong></li>
+      <li>At the end of the chain, electrons + H⁺ combine with <strong>O₂ → H₂O</strong> (water)</li>
     </ol>
     <div class="box box-alert">
-      <div class="box-label">⚠️ What happens if O₂ is not available?</div>
-      <p>Without O₂, electrons cannot be accepted at the end of the ETC → the chain STOPS → NADH and FADH₂ cannot unload their electrons → they pile up → Krebs cycle stops too → cell switches to <strong>FERMENTATION</strong>!</p>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — ETC</div>
-      <p><strong>"The ETC is a Proton Pump Waterfall"</strong> — Electrons flow downhill through the chain (releasing energy), that energy pumps protons uphill (building pressure), then protons flow back downhill through ATP synthase (making ATP). Just like a dam generating electricity from water flow!</p>
+      <div class="box-label">What happens without O₂?</div>
+      <p>Without O₂, electrons cannot be accepted at the end of the ETC → the chain stops → NADH cannot be recycled → fermentation occurs instead.</p>
     </div>
 
-    <div class="section-title ch7">5️⃣ Fermentation — When There's No Oxygen</div>
+    <div class="section-title ch7">Fermentation — When O₂ Is Not Available</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Fermentation</strong> = an anaerobic (no oxygen) process that regenerates NAD⁺ from NADH, allowing glycolysis to continue. Produces only <strong>2 ATP</strong> (just from glycolysis). The Krebs cycle and ETC do NOT run during fermentation.</p>
-    </div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ WHY does fermentation happen?</div>
-      <p>Without O₂, NADH cannot unload its electrons at the ETC. NADH piles up. Glycolysis NEEDS NAD⁺ to keep running. Fermentation converts NADH back to NAD⁺ by dumping the electrons onto pyruvate — this keeps glycolysis going and keeps the cell alive (barely).</p>
+      <div class="box-label">Definition</div>
+      <p><strong>Fermentation</strong> = an anaerobic process that regenerates NAD⁺ from NADH so glycolysis can continue. Generates ATP only in glycolysis (2 ATP total). Occurs in the <strong>cytoplasm</strong>.</p>
     </div>
     <table class="compare-table">
       <tr>
         <th class="th-ch7">Type</th>
-        <th class="th-ch7">What Pyruvate Becomes</th>
+        <th class="th-ch7">What Happens</th>
         <th class="th-ch7">Products</th>
-        <th class="th-ch7">Real-World Example</th>
+        <th class="th-ch7">Example</th>
       </tr>
       <tr>
-        <td><strong>Alcoholic Fermentation</strong></td>
-        <td>Pyruvate → Ethanol + CO₂</td>
-        <td>Ethanol (alcohol) + CO₂ + 2 ATP</td>
-        <td>Yeast making beer, wine, bread (CO₂ makes bread rise!)</td>
+        <td><strong>Alcoholic fermentation</strong></td>
+        <td>NADH reduces pyruvate to ethanol; NAD⁺ is re-created</td>
+        <td>Ethanol + CO₂</td>
+        <td>Yeast making beer/bread</td>
       </tr>
       <tr>
-        <td><strong>Lactic Acid Fermentation</strong></td>
-        <td>Pyruvate → Lactic acid</td>
-        <td>Lactic acid + 2 ATP</td>
-        <td>Your muscles during intense exercise; yogurt, cheese, sour cream</td>
+        <td><strong>Lactic acid fermentation</strong></td>
+        <td>NADH reduces pyruvate to lactic acid; NAD⁺ is re-created</td>
+        <td>Lactic acid</td>
+        <td>Muscle cells during intense exercise</td>
       </tr>
     </table>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Fermentation Types</div>
-      <p><strong>"YEAST = ALCOHOL · MUSCLES = LACTIC ACID"</strong><br>
-      Yeast makes beer → alcoholic fermentation → ethanol + CO₂ (CO₂ makes bread rise!)<br>
-      Your muscles burn during a sprint → lactic acid fermentation → that burning feeling IS lactic acid!</p>
-    </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Aerobic vs. Fermentation — Quick Comparison</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch7">Feature</th>
-          <th class="th-ch7">Aerobic Respiration</th>
-          <th class="th-gray">Fermentation</th>
-        </tr>
-        <tr><td>Oxygen needed?</td><td>✅ YES</td><td>❌ NO (anaerobic)</td></tr>
-        <tr><td>ATP produced</td><td><span class="atp-badge">36 ATP</span></td><td><span class="atp-badge">2 ATP</span></td></tr>
-        <tr><td>Krebs cycle runs?</td><td>✅ YES</td><td>❌ NO</td></tr>
-        <tr><td>ETC runs?</td><td>✅ YES</td><td>❌ NO</td></tr>
-        <tr><td>Products</td><td>CO₂ + H₂O + ATP</td><td>Ethanol+CO₂ OR Lactic acid + ATP</td></tr>
-        <tr><td>Location</td><td>Cytoplasm + Mitochondria</td><td>Cytoplasm only</td></tr>
-      </table>
-    </div>
-
-    <div class="section-title ch7">🍔 Section 7.6: Other Food Molecules — Fats &amp; Proteins</div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ Glucose is NOT the Only Fuel — Fats and Proteins Can Also Be Used!</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch7">Molecule</th>
-          <th class="th-ch7">Where It Enters Respiration</th>
-          <th class="th-ch7">Key Point</th>
-        </tr>
-        <tr>
-          <td><strong>Fats (lipids)</strong></td>
-          <td>Broken into glycerol + fatty acids → fatty acids enter as Acetyl-CoA (Krebs cycle)</td>
-          <td>Fats produce MORE ATP per gram than glucose — that's why fat is such a good energy storage molecule</td>
-        </tr>
-        <tr>
-          <td><strong>Proteins</strong></td>
-          <td>Broken into amino acids → amino acids enter at various points (glycolysis, pyruvate, Krebs cycle)</td>
-          <td>Proteins are used as fuel only when carbohydrates and fats are depleted (e.g., starvation)</td>
-        </tr>
-        <tr>
-          <td><strong>Carbohydrates</strong></td>
-          <td>Converted to glucose → enters glycolysis</td>
-          <td>The preferred fuel source; used first</td>
-        </tr>
-      </table>
-    </div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ The Two Laws of Dieting (from textbook 7.6)</div>
-      <ul class="bullet-list ch7">
-        <li><strong>Law 1:</strong> All calories are equal — a calorie from fat = a calorie from carbs = a calorie from protein</li>
-        <li><strong>Law 2:</strong> (calories in) − (calories out) = fat stored</li>
-        <li>Fad diets (Atkins, paleo) work only by reducing total calories — not because of any special metabolic magic</li>
-      </ul>
-    </div>
-
-    <div class="section-title ch7">🎓 Professor's TopHat Questions — Chapter 7</div>
-    <div class="tophat-q">
-      <div class="q-text">Where does glycolysis occur?</div>
-      <div class="q-answer">✅ In the cytoplasm (cytosol) — NOT in the mitochondria!</div>
-      <div class="q-explain">Glycolysis happens BEFORE the mitochondria get involved. It's the only step that occurs in the cytoplasm.</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">What is the net ATP yield from glycolysis?</div>
-      <div class="q-answer">✅ 2 ATP (net)</div>
-      <div class="q-explain">Glycolysis uses 2 ATP to start and produces 4 ATP — net gain = 2 ATP.</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">What happens to NADH if oxygen is not available?</div>
-      <div class="q-answer">✅ NADH cannot donate electrons to the ETC → fermentation occurs to regenerate NAD⁺</div>
-      <div class="q-explain">Without O₂, the ETC stops. NADH piles up. Fermentation converts NADH back to NAD⁺ so glycolysis can continue.</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">What is the final electron acceptor in the ETC?</div>
-      <div class="q-answer">✅ Oxygen (O₂) — it combines with electrons and H⁺ to form water (H₂O)</div>
+      <div class="box-label">Other Food Molecules</div>
+      <p>Proteins and fats can also enter the energy-extracting pathways — they enter at different points (fats enter as acetyl-CoA; proteins enter as various intermediates).</p>
     </div>
 
   </div><!-- end ch7 body -->
@@ -736,16 +598,81 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
   <div class="ch-header ch8m">
     <div class="ch-num-big">8A</div>
     <div class="ch-header-text">
-      <h2>🔬 Chapter 8: Mitosis &amp; Cell Division</h2>
+      <h2>Chapter 8: Mitosis &amp; Cell Division</h2>
       <div class="ch-sub">Cell Cycle · Binary Fission · Chromosomes · PMAT · Cytokinesis</div>
     </div>
   </div>
   <div class="ch-body">
 
-    <div class="section-title ch8m">🔄 The Cell Cycle — Overview</div>
+    <div class="section-title ch8m">Overview — Cell Division</div>
     <div class="box box-remember">
-      <div class="box-label">⭐ The Cell Cycle vs. Mitosis — They Are NOT the Same!</div>
-      <p><strong>Cell cycle</strong> = the ENTIRE life of a cell (interphase + mitosis + cytokinesis)<br>
+      <div class="box-label">Key Concepts</div>
+      <ul class="bullet-list ch8m">
+        <li>Cell division produces a continuous supply of replacement cells</li>
+        <li>Each daughter cell receives a complete set of hereditary information from the parent cell and about half its cytoplasm</li>
+        <li><strong>Asexual reproduction</strong> — offspring formed from a single parent; offspring are genetically identical clones</li>
+        <li><strong>Sexual reproduction</strong> — offspring produced by fusion of gametes (sperm and egg) from two adults; requires meiosis</li>
+        <li><strong>Mitosis</strong> adds new cells; <strong>apoptosis</strong> (programmed cell death) removes them — allowing tissues to renew themselves</li>
+      </ul>
+    </div>
+
+    <div class="section-title ch8m">Chromosome Vocabulary — Know the Differences</div>
+    <div class="box box-def">
+      <div class="box-label">Must-Know Terms</div>
+      <ul class="bullet-list ch8m">
+        <li><strong>Chromosome</strong> = a single, condensed DNA molecule + proteins (histones). Humans have 46 chromosomes (23 pairs).</li>
+        <li><strong>Chromatin</strong> = the loose, uncondensed form of DNA + histone proteins (what chromosomes look like during interphase)</li>
+        <li><strong>Nucleosome</strong> = DNA wrapped around 8 histone proteins — the basic unit of chromatin packaging</li>
+        <li><strong>Sister chromatids</strong> = the two identical copies of a chromosome joined at the centromere after DNA replication</li>
+        <li><strong>Homologous chromosomes</strong> = a pair of chromosomes — one from mom, one from dad — that carry genes for the same traits but may have different versions (alleles). NOT identical copies.</li>
+        <li><strong>Centromere</strong> = the region where sister chromatids are joined; also the attachment site for spindle microtubules</li>
+        <li><strong>Telomeres</strong> = regions at the ends of chromosomes essential for chromosome stability</li>
+        <li><strong>Diploid (2n)</strong> = having 2 sets of chromosomes. Human body cells = 2n = 46.</li>
+        <li><strong>Haploid (n)</strong> = having 1 set of chromosomes. Human gametes (sperm/egg) = n = 23.</li>
+        <li><strong>Alleles</strong> = enduring mutations inherited generation after generation; different versions of a gene (e.g., black, brown, or blond hair)</li>
+      </ul>
+    </div>
+    <div class="box box-alert">
+      <div class="box-label">Sister Chromatids vs. Homologous Chromosomes — Common Exam Confusion</div>
+      <table class="compare-table">
+        <tr>
+          <th class="th-ch8m">Sister Chromatids</th>
+          <th class="th-gray">Homologous Chromosomes</th>
+        </tr>
+        <tr><td>IDENTICAL copies of the same chromosome</td><td>Same chromosome type but from different parents — may have different alleles</td></tr>
+        <tr><td>Joined at the centromere</td><td>NOT joined — separate chromosomes</td></tr>
+        <tr><td>Created by DNA replication (S phase)</td><td>Inherited — one from mom, one from dad</td></tr>
+        <tr><td>Separated during ANAPHASE of mitosis</td><td>Separated during meiosis I (not mitosis)</td></tr>
+      </table>
+    </div>
+    <div class="box box-remember">
+      <div class="box-label">Human Chromosomes</div>
+      <ul class="bullet-list ch8m">
+        <li>A typical human cell has <strong>23 pairs of chromosomes, for a total of 46</strong></li>
+        <li>22 pairs = autosomes</li>
+        <li>1 pair = sex chromosomes (different in males and females)</li>
+      </ul>
+    </div>
+
+    <div class="section-title ch8m">Binary Fission — Prokaryote Division</div>
+    <div class="box box-def">
+      <div class="box-label">Definition</div>
+      <p><strong>Binary fission</strong> = how prokaryotes (bacteria) reproduce. An asexual process that replicates DNA and distributes it to two daughter cells. Much simpler than mitosis — prokaryotes have one circular chromosome and no nucleus.</p>
+    </div>
+    <div class="box box-remember">
+      <div class="box-label">Binary Fission Steps</div>
+      <ol class="steps ch8m">
+        <li>The circular chromosome is replicated; DNA attaches to the cell membrane</li>
+        <li>The cell membrane grows between the two DNA molecules</li>
+        <li>The cell elongates</li>
+        <li>The cell divides in half, forming two identical daughter cells</li>
+      </ol>
+    </div>
+
+    <div class="section-title ch8m">The Cell Cycle</div>
+    <div class="box box-remember">
+      <div class="box-label">Cell Cycle vs. Mitosis — They Are NOT the Same</div>
+      <p><strong>Cell cycle</strong> = the entire life of a cell (interphase + mitosis + cytokinesis)<br>
       <strong>Mitosis</strong> = just the nuclear division phase of the cell cycle (PMAT)</p>
     </div>
     <table class="compare-table">
@@ -753,226 +680,104 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
         <th class="th-ch8m">Phase</th>
         <th class="th-ch8m">Stage</th>
         <th class="th-ch8m">What Happens</th>
-        <th class="th-ch8m">DNA Status</th>
       </tr>
       <tr>
-        <td rowspan="3"><strong>INTERPHASE</strong><br><em>(most of cell's life)</em></td>
+        <td rowspan="3"><strong>INTERPHASE</strong></td>
         <td><strong>G₁ (Gap 1)</strong></td>
-        <td>Cell grows; makes proteins and organelles; normal cell activities</td>
-        <td>Normal (2n)</td>
+        <td>Cell grows; makes proteins and organelles; normal cell activities. Protein synthesis occurs.</td>
       </tr>
       <tr>
         <td><strong>S (Synthesis)</strong></td>
-        <td>DNA is REPLICATED — every chromosome is copied; cell now has double the DNA</td>
-        <td>Being copied → 4n</td>
+        <td>DNA is replicated — every chromosome is copied; cell now has double the DNA</td>
       </tr>
       <tr>
         <td><strong>G₂ (Gap 2)</strong></td>
-        <td>Cell continues to grow; prepares for division; checks DNA for errors</td>
-        <td>4n (doubled)</td>
+        <td>Cell continues to grow; produces proteins necessary for mitosis; DNA begins to wind more tightly around histones</td>
       </tr>
       <tr>
         <td><strong>MITOSIS</strong></td>
         <td>PMAT (4 phases)</td>
         <td>Nucleus divides; chromosomes are separated into 2 identical sets</td>
-        <td>Separating</td>
       </tr>
       <tr>
         <td><strong>CYTOKINESIS</strong></td>
         <td>After telophase</td>
         <td>Cytoplasm divides; 2 daughter cells are formed</td>
-        <td>2n each</td>
       </tr>
     </table>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Cell Cycle Order</div>
-      <p><strong>"I Pee on the MAT"</strong> = <strong>I</strong>nterphase → <strong>P</strong>rophase → <strong>M</strong>etaphase → <strong>A</strong>naphase → <strong>T</strong>elophase → Cytokinesis</p>
-    </div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ TopHat Question — G₂ chromosome number!</div>
-      <p>If an organism has 36 chromosomes in G₂, what is the diploid number? <strong>Answer: 36</strong> — The diploid number = the chromosome count. In G₂, DNA has been replicated (so there are 72 chromatids) but the chromosome NUMBER is still 36 (each chromosome has 2 sister chromatids joined at the centromere). Count centromeres = count chromosomes!</p>
-    </div>
-
-    <div class="section-title ch8m">🧬 Chromosomes — Key Vocabulary</div>
-    <div class="box box-def">
-      <div class="box-label">📖 Key Chromosome Terms — Know the Differences!</div>
-      <ul class="bullet-list ch8m">
-        <li><strong>Chromosome</strong> = a single, condensed DNA molecule + proteins (histones). Humans have 46 chromosomes (23 pairs).</li>
-        <li><strong>Chromatin</strong> = the loose, uncondensed form of DNA + histone proteins (what chromosomes look like during interphase)</li>
-        <li><strong>Sister chromatids</strong> = the two IDENTICAL copies of a chromosome joined at the centromere AFTER DNA replication. They are exact copies of each other.</li>
-        <li><strong>Homologous chromosomes (homologues)</strong> = a PAIR of chromosomes — one from mom, one from dad — that carry genes for the same traits but may have different versions (alleles). NOT identical copies.</li>
-        <li><strong>Centromere</strong> = the region where sister chromatids are joined together. Count centromeres to count chromosomes!</li>
-        <li><strong>Diploid (2n)</strong> = having 2 sets of chromosomes (one from each parent). Human body cells = 2n = 46.</li>
-        <li><strong>Haploid (n)</strong> = having 1 set of chromosomes. Human gametes (sperm/egg) = n = 23.</li>
-        <li><strong>Karyotype</strong> = a photograph of all the chromosomes in a cell, arranged in pairs by size and shape. Used to detect chromosomal abnormalities.</li>
-      </ul>
-    </div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ Sister Chromatids vs. Homologous Chromosomes — VERY Common Exam Confusion!</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch8m">Sister Chromatids</th>
-          <th class="th-gray">Homologous Chromosomes</th>
-        </tr>
-        <tr><td>IDENTICAL copies of the same chromosome</td><td>Same chromosome TYPE but from different parents (may have different alleles)</td></tr>
-        <tr><td>Joined at the centromere</td><td>NOT joined — separate chromosomes</td></tr>
-        <tr><td>Created by DNA replication (S phase)</td><td>Inherited — one from mom, one from dad</td></tr>
-        <tr><td>Separated during ANAPHASE of mitosis</td><td>Separated during meiosis I (not mitosis)</td></tr>
-      </table>
-    </div>
-    <div class="box box-def">
-      <div class="box-label">📖 Chromosome Structure</div>
-      <ul class="bullet-list ch8m">
-        <li><strong>Histones</strong> = positively charged proteins that DNA wraps around; help compact DNA</li>
-        <li><strong>Nucleosome</strong> = DNA wrapped around 8 histone proteins (like beads on a string); every 200 nucleotides</li>
-        <li>Human chromosomes are ~40% DNA and ~60% protein</li>
-        <li>If stretched out, DNA from one chromosome = ~5 cm (2 inches) long!</li>
-      </ul>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Sister vs. Homologous</div>
-      <p><strong>"Sisters = Identical Twins · Homologues = Fraternal Twins"</strong><br>
-      Sister chromatids = identical twins (exact same DNA, joined at the hip). Homologous chromosomes = fraternal twins (same chromosome type, but from different parents — look similar but aren't identical).</p>
-    </div>
-
-    <div class="section-title ch8m">🦠 Binary Fission — Prokaryote Cell Division</div>
-    <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Binary fission</strong> = how prokaryotes (bacteria) divide. The circular DNA is replicated, then the cell simply splits in two. Much simpler than mitosis because prokaryotes have less DNA and no nucleus.</p>
-    </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Binary Fission Steps</div>
-      <ol class="steps ch8m">
-        <li>The circular chromosome is replicated</li>
-        <li>The two chromosomes move to opposite ends of the cell</li>
-        <li>The cell elongates</li>
-        <li>A new cell wall forms in the middle, splitting the cell into two identical daughter cells</li>
-      </ol>
+      <div class="box-label">G₀ Phase</div>
+      <p><strong>G₀</strong> = the cell continues its function but does not replicate its DNA or divide. Most cells in your body are currently in G₀.</p>
     </div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ Why is Eukaryotic Division More Complex?</div>
-      <ul class="bullet-list ch8m">
-        <li>Eukaryotes have MUCH MORE DNA (humans: ~3 billion base pairs vs. bacteria: ~4 million)</li>
-        <li>DNA is longer and must be carefully packaged into chromosomes</li>
-        <li>DNA is wrapped around histones and organized into chromatin</li>
-        <li>Must use a spindle apparatus to pull chromosomes apart precisely</li>
-      </ul>
+    <div class="box box-alert">
+      <div class="box-label">Chromosome Number in G₂</div>
+      <p>If an organism has 36 chromosomes in G₂, the diploid number is still 36. In G₂, DNA has been replicated (72 chromatids total) but the chromosome NUMBER is still 36 — each chromosome has 2 sister chromatids joined at the centromere. Count centromeres = count chromosomes.</p>
     </div>
 
-    <div class="section-title ch8m">🔬 The 4 Phases of Mitosis — PMAT</div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ Major Exam Topic — Know each phase in DETAIL</div>
-      <p>The professor says: "Be able to describe, in detail, what is occurring in the four steps of mitosis." This WILL be on the exam.</p>
-    </div>
+    <div class="section-title ch8m">The 4 Phases of Mitosis — PMAT</div>
     <table class="compare-table">
       <tr>
         <th class="th-ch8m">Phase</th>
         <th class="th-ch8m">What You See</th>
         <th class="th-ch8m">Key Events</th>
-        <th class="th-ch8m">Memory Hook</th>
       </tr>
       <tr>
-        <td><strong>PROPHASE</strong> 🌀</td>
+        <td><strong>PROPHASE</strong></td>
         <td>Chromosomes condense and become visible; nuclear envelope breaks down</td>
         <td>
-          • Chromatin coils into visible chromosomes<br>
-          • Nuclear envelope dissolves<br>
-          • Spindle fibers form from centrioles<br>
-          • Nucleolus disappears
+          Duplicated chromosomes condense · Spindle microtubules form from centrioles ·
+          Nuclear envelope breaks down · Nucleolus disappears ·
+          Chromosomes captured by spindle microtubules (at kinetochores)
         </td>
-        <td><strong>"PRO = PREpare"</strong> — chromosomes get ready, spindle forms, nuclear envelope breaks down</td>
       </tr>
       <tr>
-        <td><strong>METAPHASE</strong> 📏</td>
-        <td>Chromosomes line up in the MIDDLE of the cell</td>
+        <td><strong>METAPHASE</strong></td>
+        <td>Chromosomes line up in the middle of the cell</td>
         <td>
-          • Chromosomes align along the cell's equator (metaphase plate)<br>
-          • Spindle fibers attach to centromeres<br>
-          • BEST phase to count chromosomes!
+          Chromosomes align along the cell's equator (metaphase plate) ·
+          Spindle fibers attach to centromeres · Best phase to count chromosomes
         </td>
-        <td><strong>"META = MIDDLE"</strong> — chromosomes line up in the Middle. Like people lining up in the Middle of a room.</td>
       </tr>
       <tr>
-        <td><strong>ANAPHASE</strong> ↔️</td>
-        <td>Sister chromatids are PULLED APART to opposite poles</td>
+        <td><strong>ANAPHASE</strong></td>
+        <td>Sister chromatids are pulled apart to opposite poles</td>
         <td>
-          • Centromeres split<br>
-          • Sister chromatids separate and move to opposite ends<br>
-          • Cell elongates<br>
-          • Each pole now has a complete set of chromosomes
+          Centromeres split · Sister chromatids separate and become independent daughter chromosomes ·
+          Motor proteins in kinetochores pull chromatids apart · Cell elongates
         </td>
-        <td><strong>"ANA = APART"</strong> — chromosomes move Apart. "Anaphase = Away" — they're pulled away from each other.</td>
       </tr>
       <tr>
-        <td><strong>TELOPHASE + Cytokinesis</strong> ✂️</td>
+        <td><strong>TELOPHASE + Cytokinesis</strong></td>
         <td>Two new nuclei form; cell splits in two</td>
         <td>
-          • Nuclear envelopes re-form around each set of chromosomes<br>
-          • Chromosomes uncoil back to chromatin<br>
-          • Spindle fibers disappear<br>
-          • Cytokinesis begins (cell physically divides)
+          Nuclear envelopes re-form around each set of chromosomes ·
+          Chromosomes uncoil back to chromatin · Spindle fibers disintegrate ·
+          Nucleoli reappear · Cytokinesis begins
         </td>
-        <td><strong>"TELO = TWO"</strong> — Two nuclei form, Two cells are made. Telos = "end" in Greek.</td>
       </tr>
     </table>
 
-    <div class="section-title ch8m">✂️ Cytokinesis — Splitting the Cytoplasm</div>
+    <div class="section-title ch8m">Cytokinesis — Splitting the Cytoplasm</div>
+    <table class="compare-table">
+      <tr>
+        <th class="th-ch8m">Feature</th>
+        <th class="th-ch8m">Animal Cells</th>
+        <th class="th-ch6">Plant Cells</th>
+      </tr>
+      <tr>
+        <td><strong>Mechanism</strong></td>
+        <td>Cleavage furrow — a ring of microfilaments contracts and pinches the cell in two</td>
+        <td>Cell plate forms in the middle and grows outward to divide the cell</td>
+      </tr>
+      <tr>
+        <td><strong>Why different?</strong></td>
+        <td>Animal cells are flexible — can be pinched</td>
+        <td>Plant cells have a rigid cell wall — cannot be pinched; must build a new wall</td>
+      </tr>
+    </table>
     <div class="box box-remember">
-      <div class="box-label">⭐ Animal vs. Plant Cytokinesis — Know the Difference!</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch8m">Feature</th>
-          <th class="th-ch8m">Animal Cells</th>
-          <th class="th-ch6">Plant Cells</th>
-        </tr>
-        <tr><td><strong>Method</strong></td><td><strong>Cleavage furrow</strong> — a ring of protein filaments pinches the cell inward like a drawstring</td><td><strong>Cell plate</strong> — a new cell wall forms down the middle from the inside out</td></tr>
-        <tr><td><strong>Why different?</strong></td><td>Animal cells are flexible — can be pinched</td><td>Plant cells have a rigid cell wall — can't be pinched; must build a new wall</td></tr>
-        <tr><td><strong>Visual</strong></td><td>Cell looks like it's being squeezed in the middle</td><td>A flat plate grows across the middle</td></tr>
-      </table>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick</div>
-      <p><strong>"Animals PINCH · Plants BUILD"</strong><br>
-      Animals pinch themselves in half (cleavage furrow = like a belt tightening). Plants can't pinch because of their rigid cell wall, so they BUILD a new wall down the middle (cell plate).</p>
-    </div>
-
-    <div class="section-title ch8m">🎯 Outcome of Mitosis</div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ What Do You Get from Mitosis?</div>
-      <ul class="bullet-list ch8m">
-        <li>Start with: <strong>1 diploid cell (2n)</strong></li>
-        <li>End with: <strong>2 diploid cells (2n)</strong> — genetically IDENTICAL to the parent cell</li>
-        <li>Used for: growth, repair, asexual reproduction</li>
-        <li>Chromosome number is PRESERVED (does NOT change)</li>
-      </ul>
-    </div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ Mitosis vs. Meiosis — Don't Mix These Up!</div>
-      <table class="compare-table">
-        <tr>
-          <th class="th-ch8m">Mitosis</th>
-          <th class="th-gray">Meiosis</th>
-        </tr>
-        <tr><td>1 division → 2 cells</td><td>2 divisions → 4 cells</td></tr>
-        <tr><td>Daughter cells are DIPLOID (2n)</td><td>Daughter cells are HAPLOID (n)</td></tr>
-        <tr><td>Daughter cells are IDENTICAL to parent</td><td>Daughter cells are GENETICALLY DIFFERENT</td></tr>
-        <tr><td>Used for growth and repair</td><td>Used to make gametes (sperm/eggs)</td></tr>
-      </table>
-    </div>
-
-    <div class="section-title ch8m">🎓 Professor's TopHat Questions — Chapter 8 Mitosis</div>
-    <div class="tophat-q">
-      <div class="q-text">If an organism has 36 chromosomes in G₂, what is the diploid number?</div>
-      <div class="q-answer">✅ 36 — the diploid number equals the chromosome count</div>
-      <div class="q-explain">In G₂, DNA has been replicated (so there are 72 chromatids) but the chromosome NUMBER is still 36. Count centromeres = count chromosomes. The diploid number = 2n = 36.</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">During which phase of mitosis do chromosomes line up at the cell's equator?</div>
-      <div class="q-answer">✅ Metaphase — chromosomes align at the metaphase plate (middle of the cell)</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">What is the difference between a sister chromatid and a homologous chromosome?</div>
-      <div class="q-answer">✅ Sister chromatids = identical copies of the same chromosome joined at the centromere. Homologues = pairs of chromosomes (one from each parent) that carry genes for the same traits but may have different alleles.</div>
+      <div class="box-label">Cell Cycle Checkpoints</div>
+      <p>Chemical checkpoints regulate the cell cycle. These checkpoints ensure DNA is properly replicated and the cell is ready before proceeding to the next phase.</p>
     </div>
 
   </div><!-- end ch8m body -->
@@ -985,54 +790,78 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
   <div class="ch-header ch8c">
     <div class="ch-num-big">8B</div>
     <div class="ch-header-text">
-      <h2>🎗️ Chapter 8: Cancer</h2>
-      <div class="ch-sub">What Is Cancer · Oncogenes · Tumor Suppressors · Staging · Treatments</div>
+      <h2>Chapter 8: Cancer</h2>
+      <div class="ch-sub">What It Is · How It Makes You Sick · Staging · Treatments</div>
     </div>
   </div>
   <div class="ch-body">
 
-    <div class="section-title ch8c">🔬 What Is Cancer?</div>
+    <div class="section-title ch8c">What Is Cancer?</div>
     <div class="box box-def">
-      <div class="box-label">📖 Definition</div>
-      <p><strong>Cancer</strong> = a disease caused by mutations in genes that control cell division. Cancer cells divide uncontrollably, do not respond to normal "stop dividing" signals, and can invade other tissues.</p>
+      <div class="box-label">Definition</div>
+      <p><strong>Cancer</strong> = a disease of uncontrolled cell growth. Caused by genetic mutations that regulate cell division. Close to 40% of Americans will be diagnosed with cancer.</p>
     </div>
     <div class="box box-remember">
-      <div class="box-label">⭐ Key Facts About Cancer</div>
+      <div class="box-label">Key Facts</div>
       <ul class="bullet-list ch8c">
-        <li>~40–50% of Americans will be diagnosed with cancer in their lifetime</li>
         <li>Cancer is caused by <strong>mutations in genes</strong> that regulate cell division</li>
-        <li>Most cancers require <strong>multiple mutations</strong> to develop (not just one)</li>
-        <li>Cancer cells do NOT respond to normal cell cycle checkpoints</li>
+        <li>Most cancers require <strong>multiple mutations</strong> to develop</li>
+        <li>Cancer cells do not respond to normal cell cycle checkpoints</li>
         <li>Cancer cells can be immortal — they keep dividing indefinitely</li>
       </ul>
     </div>
-
-    <div class="section-title ch8c">🧬 Two Types of Cancer-Causing Gene Mutations</div>
-    <div class="box box-alert">
-      <div class="box-label">⚠️ Major Exam Topic — Know both types and the GAS/BRAKES analogy!</div>
+    <div class="box box-remember">
+      <div class="box-label">How Cancer Cells Differ from Normal Cells</div>
+      <table class="compare-table">
+        <tr>
+          <th class="th-ch6">Normal Cells</th>
+          <th class="th-ch8c">Cancer Cells</th>
+        </tr>
+        <tr><td>Communicate via chemical signals that influence cell division and program cell death</td><td>Lack effective communication</td></tr>
+        <tr><td>Stop dividing at a certain density (density-dependent inhibition)</td><td>Keep dividing regardless of density</td></tr>
+        <tr><td>Only divide a certain number of times</td><td>Are not programmed to die (can be immortal)</td></tr>
+        <tr><td>Must be anchored to divide</td><td>Do not need to be anchored</td></tr>
+      </table>
     </div>
+    <div class="box box-def">
+      <div class="box-label">Tumor vs. Cancer — Not Interchangeable</div>
+      <ul class="bullet-list ch8c">
+        <li><strong>Tumor (neoplasm)</strong> = an abnormal growth of tissue capable of forming a mass</li>
+        <li><strong>Benign tumor</strong> = does NOT invade surrounding tissue and does NOT spread — not cancer</li>
+        <li><strong>Malignant tumor</strong> = CAN invade surrounding tissue and spread to other parts of the body — IS cancer</li>
+      </ul>
+    </div>
+
+    <div class="section-title ch8c">How Cancer Makes You Sick</div>
+    <div class="box box-remember">
+      <div class="box-label">Health Consequences</div>
+      <ul class="bullet-list ch8c">
+        <li><strong>Tumor growth</strong> — tumor grows and impairs organ function</li>
+        <li><strong>Metastasis</strong> = cancer cells enter the bloodstream, producing secondary tumors in distant organs. This is what makes cancer deadly.</li>
+        <li><strong>Angiogenesis</strong> = blood vessels are routed to the tumor, depriving normal cells of oxygen and nutrients</li>
+      </ul>
+    </div>
+
+    <div class="section-title ch8c">Two Types of Cancer-Causing Gene Mutations</div>
     <table class="compare-table">
       <tr>
         <th class="th-ch8c">Gene Type</th>
         <th class="th-ch8c">Normal Function</th>
         <th class="th-ch8c">When Mutated</th>
-        <th class="th-ch8c">Analogy</th>
       </tr>
       <tr>
-        <td><strong>Proto-oncogene</strong> → becomes <strong>Oncogene</strong></td>
+        <td><strong>Proto-oncogene → Oncogene</strong></td>
         <td>Promotes cell division when needed (like a gas pedal)</td>
         <td>Stuck in the "ON" position → cell divides non-stop even without a signal</td>
-        <td>🚗 <strong>Stuck gas pedal</strong> — car accelerates even when you're not pressing it</td>
       </tr>
       <tr>
         <td><strong>Tumor Suppressor Gene</strong></td>
         <td>Stops cell division when needed (like brakes)</td>
-        <td>Brakes are broken → cell can't stop dividing</td>
-        <td>🚗 <strong>Broken brakes</strong> — car can't stop even when you press the brake pedal</td>
+        <td>Brakes are broken → cell cannot stop dividing</td>
       </tr>
     </table>
     <div class="box box-remember">
-      <div class="box-label">⭐ Specific Tumor Suppressor Proteins — HIGH YIELD!</div>
+      <div class="box-label">Specific Tumor Suppressor Proteins — High Yield</div>
       <table class="compare-table">
         <tr>
           <th class="th-ch8c">Protein</th>
@@ -1041,151 +870,78 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
         </tr>
         <tr>
           <td><strong>p53</strong></td>
-          <td>Inspects DNA integrity; stops cell division if DNA is damaged; triggers DNA repair or apoptosis (cell death)</td>
-          <td><strong>50% of ALL cancers</strong> have a disabled p53. 70–80% of lung cancers have mutant p53 (benzo[a]pyrene in cigarette smoke mutates p53).</td>
+          <td>Inspects DNA integrity; stops cell division if DNA is damaged; triggers DNA repair or apoptosis</td>
+          <td><strong>50% of ALL cancers</strong> have a disabled p53. 70–80% of lung cancers have mutant p53.</td>
         </tr>
         <tr>
           <td><strong>Rb (Retinoblastoma protein)</strong></td>
           <td>Blocks E2F protein, which prevents DNA copying. When Rb is released, E2F enables DNA replication.</td>
-          <td><strong>40% of ALL cancers</strong> have a defective Rb. Without Rb, E2F is always active → constant DNA replication → uncontrolled division.</td>
+          <td><strong>40% of ALL cancers</strong> have a defective Rb. Without Rb, E2F is always active → constant DNA replication.</td>
         </tr>
         <tr>
           <td><strong>Telomerase inhibitor</strong></td>
-          <td>Inhibits telomerase, which means chromosomes lose telomere tips with each division → limits cell to ~30 divisions</td>
-          <td>Almost ALL cancers destroy the telomerase inhibitor → cancer cells can divide indefinitely (immortal cells)</td>
+          <td>Inhibits telomerase → chromosomes lose telomere tips with each division → limits cell to ~30 divisions</td>
+          <td>Almost ALL cancers destroy the telomerase inhibitor → cancer cells divide indefinitely</td>
         </tr>
       </table>
     </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — p53 and Rb</div>
-      <p><strong>"p53 = Police · Rb = Red light"</strong><br>
-      p53 is the DNA police — it checks for damage and arrests the cell cycle if damage is found. Rb is a red light — it stops the cell from copying DNA. When either is broken, the cell runs red lights and ignores the police → cancer.</p>
-    </div>
-
-    <div class="section-title ch8c">📖 Key Cancer Vocabulary</div>
     <div class="box box-def">
-      <div class="box-label">📖 Must-Know Terms</div>
+      <div class="box-label">Key Vocabulary</div>
       <ul class="bullet-list ch8c">
-        <li><strong>Tumor (neoplasm)</strong> = an abnormal mass of cells resulting from uncontrolled cell division</li>
-        <li><strong>Benign tumor</strong> = does NOT invade surrounding tissue and does NOT spread; NOT cancer (but can still cause problems by pressing on organs)</li>
-        <li><strong>Malignant tumor</strong> = CAN invade surrounding tissue and spread to other parts of the body; IS cancer</li>
-        <li><strong>Metastasis</strong> = cancer cells break away from the original tumor, enter the bloodstream or lymph system, and form NEW tumors in other parts of the body. This is what makes cancer deadly.</li>
-        <li><strong>Angiogenesis</strong> = tumors send signals to grow NEW blood vessels toward themselves, stealing oxygen and nutrients from normal cells</li>
-        <li><strong>Apoptosis</strong> = programmed cell death — a normal process where damaged or unneeded cells kill themselves. Cancer cells often disable apoptosis.</li>
-        <li><strong>Carcinogen</strong> = any substance or agent that causes cancer (e.g., cigarette smoke, UV radiation, asbestos)</li>
+        <li><strong>Metastasis</strong> = cancer cells break away from the original tumor, enter the bloodstream or lymph system, and form new tumors elsewhere</li>
+        <li><strong>Angiogenesis</strong> = tumors send signals to grow new blood vessels toward themselves</li>
+        <li><strong>Apoptosis</strong> = programmed cell death — a normal process; cancer cells often disable it</li>
+        <li><strong>Carcinogen</strong> = any substance or agent that causes cancer (e.g., cigarette smoke, UV radiation)</li>
       </ul>
     </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Benign vs. Malignant</div>
-      <p><strong>"Benign = Be-NICE (stays put) · Malignant = MEAN (spreads and invades)"</strong><br>
-      Benign tumors are nice — they stay in one place. Malignant tumors are mean — they invade and spread everywhere.</p>
-    </div>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Metastasis</div>
-      <p><strong>"META = MOVE"</strong> — Metastasis = cancer cells MOVE to new locations. Like a weed spreading seeds to other parts of the garden. Once cancer metastasizes, it's much harder to treat (Stage 4).</p>
-    </div>
 
-    <div class="section-title ch8c">📊 Cancer Staging — Stages 1–4</div>
+    <div class="section-title ch8c">Cancer Staging — Stages 1–4</div>
     <div class="box box-alert">
-      <div class="box-label">⚠️ Major Exam Topic — Professor will give scenarios!</div>
-      <p>The professor says: "If I give you a scenario and describe where we are finding tumor cells, can you tell me if it is Stage 1, 2, 3, or 4?" Practice this with the staging table!</p>
+      <div class="box-label">Exam Question — Given a scenario, identify the stage</div>
+      <p>Often staged based on tumor size, number of lymph nodes involved, and the number of distant metastases. Ranges from 1–4. The lower the number, the better the prognosis.</p>
     </div>
     <table class="compare-table">
       <tr>
         <th class="th-ch8c">Stage</th>
-        <th class="th-ch8c">Where is the Cancer?</th>
+        <th class="th-ch8c">Where Is the Cancer?</th>
         <th class="th-ch8c">Prognosis</th>
-        <th class="th-ch8c">Memory Hook</th>
       </tr>
-      <tr>
-        <td><strong>Stage 1</strong></td>
-        <td>Small tumor, <strong>confined to original site</strong> — has NOT spread to lymph nodes or other organs</td>
-        <td>Best — most curable</td>
-        <td>"Staying put" — tumor is small and local</td>
-      </tr>
-      <tr>
-        <td><strong>Stage 2</strong></td>
-        <td>Larger tumor, still mostly local, may have spread to <strong>nearby lymph nodes</strong></td>
-        <td>Good with treatment</td>
-        <td>"Starting to spread" — nearby lymph nodes involved</td>
-      </tr>
-      <tr>
-        <td><strong>Stage 3</strong></td>
-        <td>Tumor has spread to <strong>more lymph nodes</strong> and possibly nearby tissues/organs</td>
-        <td>More serious</td>
-        <td>"Spreading seriously" — regional spread</td>
-      </tr>
-      <tr>
-        <td><strong>Stage 4</strong></td>
-        <td>Cancer has <strong>metastasized</strong> — spread to distant organs (liver, lungs, brain, bones)</td>
-        <td>Most serious; hardest to treat</td>
-        <td>"Spread everywhere" — distant metastasis</td>
-      </tr>
+      <tr><td><strong>Stage 1</strong></td><td>Small tumor, confined to original site — has NOT spread to lymph nodes or other organs</td><td>Best — most curable</td></tr>
+      <tr><td><strong>Stage 2</strong></td><td>Larger tumor, still mostly local, may have spread to nearby lymph nodes</td><td>Good with treatment</td></tr>
+      <tr><td><strong>Stage 3</strong></td><td>Tumor has spread to more lymph nodes and possibly nearby tissues or organs</td><td>More serious</td></tr>
+      <tr><td><strong>Stage 4</strong></td><td>Cancer has metastasized — spread to distant organs (liver, lungs, brain, bones)</td><td>Most serious; hardest to treat</td></tr>
     </table>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — Staging</div>
-      <p><strong>"1 = Local · 2 = Nearby nodes · 3 = Regional spread · 4 = Far away"</strong><br>
-      Think of it like a fire: Stage 1 = spark in one room · Stage 2 = spread to hallway · Stage 3 = whole floor · Stage 4 = whole building on fire</p>
+    <div class="box box-remember">
+      <div class="box-label">Diagnosis Methods</div>
+      <ul class="bullet-list ch8c">
+        <li>CT scan</li>
+        <li>MRI</li>
+      </ul>
     </div>
 
-    <div class="section-title ch8c">💊 Cancer Treatments</div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ Know All 3 Treatment Categories</div>
-    </div>
+    <div class="section-title ch8c">Cancer Treatments</div>
     <table class="compare-table">
       <tr>
         <th class="th-ch8c">Treatment</th>
         <th class="th-ch8c">What It Does</th>
-        <th class="th-ch8c">Best For</th>
-        <th class="th-ch8c">Key Side Effects / Limits</th>
+        <th class="th-ch8c">Key Facts</th>
       </tr>
       <tr>
         <td><strong>1. Surgery</strong></td>
-        <td>Physically removes the tumor from the body</td>
-        <td>Solid tumors that haven't spread (Stage 1–2); the ONLY curative therapy for many solid tumors</td>
-        <td>Works best when there are NO distant metastases and no local infiltration</td>
+        <td>Physically removes the tumor</td>
+        <td>First modality used successfully in cancer treatment. Only curative therapy for many common solid tumors. Works best when there are no distant metastases and no local infiltration.</td>
       </tr>
       <tr>
         <td><strong>2. Radiation</strong></td>
-        <td>Uses ionizing radiation (X-rays or gamma rays) to damage cancer cell DNA and kill them</td>
-        <td>Tumors sensitive to radiation; often combined with surgery</td>
-        <td>Fatigue, skin reactions, GI issues; radiation itself is mutagenic (can cause secondary cancers)</td>
+        <td>Ionizing radiation (X-rays or gamma rays) damages cancer cell DNA</td>
+        <td>Success depends on sensitivity difference between tumor and normal tissue. Side effects: fatigue, skin reactions, GI toxicity. Radiation is itself mutagenic, carcinogenic, and teratogenic — can cause secondary cancers.</td>
       </tr>
       <tr>
         <td><strong>3. Chemotherapy</strong></td>
-        <td>Uses drugs to halt cell division throughout the body</td>
-        <td>Cancers that have spread (metastasized); blood cancers (leukemia)</td>
-        <td>Kills fast-dividing cells — including cancer AND normal cells (hair follicles, gut lining) → hair loss, nausea, fatigue. Every chemo drug has some effect on normal tissue.</td>
+        <td>Drugs that halt cell division throughout the body</td>
+        <td>Types include alkylating agents, antimetabolites, antitumor antibiotics, plant alkaloids, hormonal agents, and immunotherapy. Every chemotherapeutic has some effect on normal tissue. Kills fast-dividing cells — including hair follicles and gut lining → hair loss, nausea, fatigue.</td>
       </tr>
     </table>
-    <div class="box box-trick">
-      <div class="box-label">🧠 Memory Trick — 3 Treatments</div>
-      <p><strong>"CUT · BURN · POISON"</strong> = Surgery · Radiation · Chemotherapy<br>
-      Surgeons CUT out the tumor. Radiation BURNS the cancer cells with energy. Chemo POISONS fast-dividing cells.</p>
-    </div>
-    <div class="box box-remember">
-      <div class="box-label">⭐ Emerging Cancer Therapies (from textbook)</div>
-      <ul class="bullet-list ch8c">
-        <li><strong>Angiogenesis inhibitors</strong> (angiostatin, endostatin) — block blood vessel growth to tumors, starving them of nutrients</li>
-        <li><strong>Telomerase inhibitors</strong> — block the enzyme that lets cancer cells divide indefinitely</li>
-        <li><strong>E2F inhibitors</strong> — target cells with defective Rb protein</li>
-        <li><strong>Immunotherapy</strong> — uses the patient's own immune system to attack cancer cells</li>
-      </ul>
-    </div>
-
-    <div class="section-title ch8c">🎓 Professor's TopHat Questions — Cancer</div>
-    <div class="tophat-q">
-      <div class="q-text">A patient has cancer cells found in a lymph node near the original tumor site. What stage is this?</div>
-      <div class="q-answer">✅ Stage 2 — cancer has spread to nearby lymph nodes but not to distant organs</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">What is the difference between a benign and malignant tumor?</div>
-      <div class="q-answer">✅ Benign = stays in one place, does not invade or spread. Malignant = can invade surrounding tissue and metastasize (spread to distant organs).</div>
-    </div>
-    <div class="tophat-q">
-      <div class="q-text">Why does chemotherapy cause hair loss?</div>
-      <div class="q-answer">✅ Chemo kills fast-dividing cells — hair follicle cells divide rapidly, so they are also killed along with cancer cells.</div>
-    </div>
 
   </div><!-- end ch8c body -->
 </div><!-- end ch8c -->
@@ -1193,21 +949,21 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
 <!-- ============================================================ -->
 <!-- MASTER QUICK REFERENCE -->
 <!-- ============================================================ -->
-<div class="chapter" id="qr" style="margin-bottom: 40px;">
-  <div class="ch-header" style="background: linear-gradient(135deg, #0f172a, #1e3a5f);">
-    <div class="ch-num-big" style="opacity:0.3;">★</div>
+<div class="chapter" id="qr" style="margin-bottom: 16px;">
+  <div class="ch-header qr">
+    <div class="ch-num-big" style="opacity:0.2;">★</div>
     <div class="ch-header-text">
-      <h2>⚡ Master Quick Reference — Bring This to the Exam!</h2>
-      <div class="ch-sub">All Equations · ATP Counts · Locations · Stages · Key Terms in One Place</div>
+      <h2>Quick Reference — Bring This to the Exam</h2>
+      <div class="ch-sub">Equations · ATP Counts · Locations · Stages · Key Terms</div>
     </div>
   </div>
   <div class="ch-body">
 
-    <div class="section-title" style="background:#1e3a5f; color:white; border-left: 5px solid #fbbf24;">⚗️ Master Equations</div>
+    <div class="section-title qr">Master Equations</div>
     <div class="equation">
       <div class="eq-label">Photosynthesis</div>
       <div class="eq-main">6CO₂ + 6H₂O + Light → C₆H₁₂O₆ + 6O₂</div>
-      <div class="eq-words">Endergonic · Chloroplast · Thylakoid (light rxns) + Stroma (Calvin cycle)</div>
+      <div class="eq-words">Endergonic · Thylakoid membrane (light rxns) + Stroma (Calvin cycle)</div>
     </div>
     <div class="equation">
       <div class="eq-label">Cellular Respiration</div>
@@ -1215,60 +971,24 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
       <div class="eq-words">Exergonic · Cytoplasm (glycolysis) + Mitochondria (Krebs + ETC)</div>
     </div>
 
-    <div class="section-title" style="background:#1e3a5f; color:white; border-left: 5px solid #fbbf24;">⚡ ATP Scorecard — Cellular Respiration</div>
+    <div class="section-title qr">Cellular Respiration — ATP Cheat Sheet</div>
     <table class="compare-table">
       <tr>
-        <th class="th-blue">Stage</th>
-        <th class="th-blue">Location</th>
-        <th class="th-blue">ATP Made</th>
-        <th class="th-blue">Also Makes</th>
-        <th class="th-blue">O₂ Needed?</th>
+        <th class="th-dark">Stage</th>
+        <th class="th-dark">Location</th>
+        <th class="th-dark">ATP Made</th>
+        <th class="th-dark">Also Makes</th>
+        <th class="th-dark">O₂ Needed?</th>
       </tr>
       <tr><td><strong>Glycolysis</strong></td><td>Cytoplasm</td><td><span class="atp-badge">2 ATP</span></td><td>2 NADH, 2 Pyruvate</td><td>No</td></tr>
       <tr><td><strong>Transition (Pyruvate → Acetyl-CoA)</strong></td><td>Mitochondrial matrix</td><td>0 ATP</td><td>2 NADH, 2 CO₂</td><td>Yes</td></tr>
       <tr><td><strong>Krebs Cycle</strong></td><td>Mitochondrial matrix</td><td><span class="atp-badge">2 ATP</span></td><td>6 NADH, 2 FADH₂, 4 CO₂</td><td>Yes</td></tr>
-      <tr><td><strong>Electron Transport Chain</strong></td><td>Inner mitochondrial membrane</td><td><span class="atp-badge">34 ATP</span></td><td>H₂O (water)</td><td>Yes (final acceptor)</td></tr>
-      <tr style="background: #fef9c3;"><td><strong>TOTAL (Aerobic)</strong></td><td>—</td><td><span class="atp-badge" style="background: linear-gradient(135deg, #16a34a, #15803d); font-size:1rem;">36 ATP</span></td><td>—</td><td>Yes</td></tr>
-      <tr><td><strong>Fermentation</strong></td><td>Cytoplasm only</td><td><span class="atp-badge">2 ATP</span></td><td>Ethanol+CO₂ OR Lactic acid</td><td>No</td></tr>
+      <tr><td><strong>Electron Transport Chain</strong></td><td>Inner mitochondrial membrane</td><td><span class="atp-badge">34 ATP</span></td><td>H₂O (water)</td><td>Yes — final acceptor</td></tr>
+      <tr><td><strong>TOTAL (Aerobic)</strong></td><td>—</td><td><span class="atp-badge">36 ATP</span></td><td>—</td><td>Yes</td></tr>
+      <tr><td><strong>Fermentation</strong></td><td>Cytoplasm only</td><td><span class="atp-badge">2 ATP</span></td><td>Ethanol + CO₂ OR Lactic acid</td><td>No</td></tr>
     </table>
 
-    <div class="section-title" style="background:#1e3a5f; color:white; border-left: 5px solid #fbbf24;">🔬 Mitosis Phases — PMAT Cheat Sheet</div>
-    <table class="compare-table">
-      <tr>
-        <th class="th-purple">Phase</th>
-        <th class="th-purple">Key Word</th>
-        <th class="th-purple">What Happens</th>
-      </tr>
-      <tr><td><strong>Prophase</strong></td><td>PREPARE</td><td>Chromosomes condense; nuclear envelope breaks down; spindle forms</td></tr>
-      <tr><td><strong>Metaphase</strong></td><td>MIDDLE</td><td>Chromosomes line up at center (metaphase plate); best time to count chromosomes</td></tr>
-      <tr><td><strong>Anaphase</strong></td><td>APART</td><td>Sister chromatids pulled to opposite poles; cell elongates</td></tr>
-      <tr><td><strong>Telophase + Cytokinesis</strong></td><td>TWO</td><td>Two nuclei form; cell splits into 2 identical diploid daughter cells</td></tr>
-    </table>
-
-    <div class="section-title" style="background:#1e3a5f; color:white; border-left: 5px solid #fbbf24;">🎗️ Cancer Quick Reference</div>
-    <table class="compare-table">
-      <tr>
-        <th class="th-ch8c">Concept</th>
-        <th class="th-ch8c">Key Fact</th>
-      </tr>
-      <tr><td><strong>Oncogene</strong></td><td>Mutated proto-oncogene → stuck "gas pedal" → constant cell division</td></tr>
-      <tr><td><strong>Tumor suppressor</strong></td><td>Broken "brakes" → cell can't stop dividing</td></tr>
-      <tr><td><strong>p53</strong></td><td>DNA damage inspector; disabled in 50% of all cancers; 70-80% of lung cancers</td></tr>
-      <tr><td><strong>Rb</strong></td><td>Blocks DNA copying; disabled in 40% of all cancers</td></tr>
-      <tr><td><strong>Benign</strong></td><td>Does NOT spread (not cancer)</td></tr>
-      <tr><td><strong>Malignant</strong></td><td>CAN spread (cancer)</td></tr>
-      <tr><td><strong>Metastasis</strong></td><td>Cancer spreads via bloodstream to distant organs = Stage 4</td></tr>
-      <tr><td><strong>Angiogenesis</strong></td><td>Tumor grows its own blood supply</td></tr>
-      <tr><td><strong>Stage 1</strong></td><td>Local only, small tumor</td></tr>
-      <tr><td><strong>Stage 2</strong></td><td>Nearby lymph nodes</td></tr>
-      <tr><td><strong>Stage 3</strong></td><td>Regional spread, more lymph nodes</td></tr>
-      <tr><td><strong>Stage 4</strong></td><td>Distant metastasis (liver, lungs, brain, bones)</td></tr>
-      <tr><td><strong>Surgery</strong></td><td>CUT — remove tumor; best for Stage 1–2 solid tumors</td></tr>
-      <tr><td><strong>Radiation</strong></td><td>BURN — damages cancer cell DNA</td></tr>
-      <tr><td><strong>Chemotherapy</strong></td><td>POISON — kills fast-dividing cells (cancer + hair + gut)</td></tr>
-    </table>
-
-    <div class="section-title" style="background:#1e3a5f; color:white; border-left: 5px solid #fbbf24;">☀️ Photosynthesis Quick Reference</div>
+    <div class="section-title qr">Photosynthesis — Location Cheat Sheet</div>
     <table class="compare-table">
       <tr>
         <th class="th-ch6">Stage</th>
@@ -1280,6 +1000,96 @@ body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; li
       <tr><td><strong>Calvin Cycle</strong></td><td>Stroma</td><td>CO₂ + ATP + NADPH</td><td>G3P → Glucose + ADP + NADP⁺</td></tr>
     </table>
 
+    <div class="section-title qr">Mitosis — PMAT Cheat Sheet</div>
+    <table class="compare-table">
+      <tr>
+        <th class="th-ch8m">Phase</th>
+        <th class="th-ch8m">Key Word</th>
+        <th class="th-ch8m">What Happens</th>
+      </tr>
+      <tr><td><strong>Prophase</strong></td><td>PREPARE</td><td>Chromosomes condense; nuclear envelope breaks down; spindle forms</td></tr>
+      <tr><td><strong>Metaphase</strong></td><td>MIDDLE</td><td>Chromosomes line up at center (metaphase plate); best time to count chromosomes</td></tr>
+      <tr><td><strong>Anaphase</strong></td><td>APART</td><td>Sister chromatids pulled to opposite poles; cell elongates</td></tr>
+      <tr><td><strong>Telophase + Cytokinesis</strong></td><td>TWO</td><td>Two nuclei form; cell splits into 2 identical diploid daughter cells</td></tr>
+    </table>
+
+    <div class="section-title qr">Cancer — Quick Reference</div>
+    <table class="compare-table">
+      <tr>
+        <th class="th-ch8c">Concept</th>
+        <th class="th-ch8c">Key Fact</th>
+      </tr>
+      <tr><td><strong>Oncogene</strong></td><td>Mutated proto-oncogene → stuck "gas pedal" → constant cell division</td></tr>
+      <tr><td><strong>Tumor suppressor</strong></td><td>Broken "brakes" → cell cannot stop dividing</td></tr>
+      <tr><td><strong>p53</strong></td><td>DNA damage inspector; disabled in 50% of all cancers; 70–80% of lung cancers</td></tr>
+      <tr><td><strong>Rb</strong></td><td>Blocks DNA copying; disabled in 40% of all cancers</td></tr>
+      <tr><td><strong>Benign</strong></td><td>Does NOT spread — not cancer</td></tr>
+      <tr><td><strong>Malignant</strong></td><td>CAN spread — is cancer</td></tr>
+      <tr><td><strong>Metastasis</strong></td><td>Cancer spreads via bloodstream to distant organs = Stage 4</td></tr>
+      <tr><td><strong>Angiogenesis</strong></td><td>Tumor grows its own blood supply</td></tr>
+      <tr><td><strong>Stage 1</strong></td><td>Local only, small tumor</td></tr>
+      <tr><td><strong>Stage 2</strong></td><td>Nearby lymph nodes</td></tr>
+      <tr><td><strong>Stage 3</strong></td><td>Regional spread, more lymph nodes</td></tr>
+      <tr><td><strong>Stage 4</strong></td><td>Distant metastasis (liver, lungs, brain, bones)</td></tr>
+      <tr><td><strong>Surgery</strong></td><td>Removes tumor — best for Stage 1–2 solid tumors</td></tr>
+      <tr><td><strong>Radiation</strong></td><td>Ionizing radiation damages cancer cell DNA</td></tr>
+      <tr><td><strong>Chemotherapy</strong></td><td>Halts cell division — kills fast-dividing cells (cancer + hair + gut)</td></tr>
+    </table>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MNEMONICS SECTION — OPTIONAL -->
+<!-- ============================================================ -->
+<div class="chapter" id="mnemonics" style="margin-bottom: 40px;">
+  <div class="ch-header" style="background: linear-gradient(135deg, #5c4a3a, #2a2118);">
+    <div class="ch-num-big" style="opacity:0.2;">M</div>
+    <div class="ch-header-text">
+      <h2>Memory Tricks — Optional</h2>
+      <div class="ch-sub">Use these if they help — skip them if you don't need them</div>
+    </div>
+  </div>
+  <div class="ch-body">
+    <div class="mnemonic-grid">
+
+      <div class="mnemonic-card">
+        <div class="mc-label">Chapter 6 — Where Photosynthesis Happens</div>
+        <div class="mc-trick">"THYLAKOID = LIGHT &nbsp;·&nbsp; STROMA = SUGAR"</div>
+        <div class="mc-explain">Light reactions happen in the thylakoid membrane. The Calvin cycle (sugar-making) happens in the stroma. Light hits the thylakoid → energy goes to stroma → glucose is made.</div>
+      </div>
+
+      <div class="mnemonic-card">
+        <div class="mc-label">Chapter 6 — Calvin Cycle Steps</div>
+        <div class="mc-trick">"CATCH · REDUCE · RECYCLE"</div>
+        <div class="mc-explain">1. CATCH the CO₂ (carbon fixation by RuBisCO) &nbsp; 2. REDUCE it to G3P using ATP + NADPH &nbsp; 3. RECYCLE the RuBP so the cycle keeps going</div>
+      </div>
+
+      <div class="mnemonic-card">
+        <div class="mc-label">Chapter 8A — Cell Cycle Order</div>
+        <div class="mc-trick">"I Pee on the MAT"</div>
+        <div class="mc-explain"><strong>I</strong>nterphase → <strong>P</strong>rophase → <strong>M</strong>etaphase → <strong>A</strong>naphase → <strong>T</strong>elophase → Cytokinesis</div>
+      </div>
+
+      <div class="mnemonic-card">
+        <div class="mc-label">Chapter 8A — Sister Chromatids vs. Homologues</div>
+        <div class="mc-trick">"Sisters = Identical Twins &nbsp;·&nbsp; Homologues = Fraternal Twins"</div>
+        <div class="mc-explain">Sister chromatids = identical twins (exact same DNA, joined at the centromere). Homologous chromosomes = fraternal twins (same chromosome type, but from different parents — similar but not identical).</div>
+      </div>
+
+      <div class="mnemonic-card">
+        <div class="mc-label">Chapter 8B — p53 and Rb</div>
+        <div class="mc-trick">"p53 = Police &nbsp;·&nbsp; Rb = Red light"</div>
+        <div class="mc-explain">p53 is the DNA police — checks for damage and arrests the cell cycle. Rb is a red light — stops the cell from copying DNA. When either is broken, the cell runs red lights and ignores the police → cancer.</div>
+      </div>
+
+      <div class="mnemonic-card">
+        <div class="mc-label">Chapter 8B — The 3 Cancer Treatments</div>
+        <div class="mc-trick">"CUT · BURN · POISON"</div>
+        <div class="mc-explain">Surgery = CUT out the tumor. Radiation = BURN the cancer cells with ionizing energy. Chemotherapy = POISON fast-dividing cells.</div>
+      </div>
+
+    </div>
   </div>
 </div>
 
