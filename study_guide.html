@@ -98,7 +98,7 @@ body {
 .ch-header.ch7  { background: linear-gradient(135deg, var(--ch7), var(--ch7-dk)); }
 .ch-header.ch8m { background: linear-gradient(135deg, var(--ch8m), var(--ch8m-dk)); }
 .ch-header.ch8c { background: linear-gradient(135deg, var(--ch8c), var(--ch8c-dk)); }
-.ch-header.qr   { background: linear-gradient(135deg, #2a2118, #4a3520); }
+.ch-header.qr   { background: linear-gradient(135deg, var(--ch8m), var(--ch8m-dk)); }
 .ch-num-big { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 800; opacity: 0.25; line-height: 1; min-width: 70px; }
 .ch-header-text h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 800; }
 .ch-header-text .ch-sub { font-size: 0.85rem; opacity: 0.85; margin-top: 3px; }
@@ -115,7 +115,7 @@ body {
 .section-title.ch7  { background: var(--ch7); }
 .section-title.ch8m { background: var(--ch8m); }
 .section-title.ch8c { background: var(--ch8c); }
-.section-title.qr   { background: #2a2118; border-left: 4px solid var(--gold); }
+.section-title.qr   { background: #fdf7ee; color: var(--dark); border: 1px solid var(--gold); border-left: 5px solid var(--gold); }
 
 /* ── CONTENT BOXES ── */
 .box {
@@ -141,14 +141,16 @@ body {
 
 /* ── EQUATION BOXES ── */
 .equation {
-  background: linear-gradient(135deg, #2a2118, #4a3520);
-  color: white; border-radius: 5px; padding: 16px 24px;
+  background: #ffffff;
+  border: 2px solid var(--ch8m);
+  border-left: 6px solid var(--gold);
+  border-radius: 5px; padding: 16px 24px;
   margin: 12px 0; text-align: center;
   page-break-inside: avoid; break-inside: avoid;
 }
-.eq-label { font-size: 0.75rem; opacity: 0.65; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-.eq-main { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--gold); }
-.eq-words { font-size: 0.85rem; opacity: 0.78; margin-top: 5px; }
+.eq-label { font-size: 0.75rem; color: var(--mid); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.eq-main { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ch8m-dk); }
+.eq-words { font-size: 0.85rem; color: var(--mid); margin-top: 5px; }
 
 /* ── TABLES ── */
 .compare-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88rem; }
@@ -160,7 +162,7 @@ body {
 .th-ch7  { background: var(--ch7); }
 .th-ch8m { background: var(--ch8m); }
 .th-ch8c { background: var(--ch8c); }
-.th-dark { background: #2a2118; }
+.th-dark { background: var(--ch8m); }
 .th-gray { background: #5c4a3a; }
 
 /* ── LISTS ── */
@@ -1043,7 +1045,7 @@ body {
 <!-- MNEMONICS SECTION — OPTIONAL -->
 <!-- ============================================================ -->
 <div class="chapter" id="mnemonics" style="margin-bottom: 40px;">
-  <div class="ch-header" style="background: linear-gradient(135deg, #5c4a3a, #2a2118);">
+  <div class="ch-header" style="background: linear-gradient(135deg, var(--ch7), var(--ch7-dk));">
     <div class="ch-num-big" style="opacity:0.2;">M</div>
     <div class="ch-header-text">
       <h2>Memory Tricks — Optional</h2>
