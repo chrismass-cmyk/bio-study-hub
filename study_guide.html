@@ -4,95 +4,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bio 1320 Exam 2 — Lulu's Study Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ── PALETTE: Earthy Olive & Terracotta ──
+   Forest green:  #2d5a27
+   Sage mid:      #4a7c59
+   Sage light:    #8fad88
+   Cream:         #f5f0e8
+   Off-white:     #faf8f4
+   Terracotta:    #b5533c
+   Clay warm:     #c97b5a
+   Gold accent:   #c9973a
+   Dark text:     #2a2118
+*/
 :root {
-  --ch6: #16a34a; --ch6-light: #dcfce7; --ch6-mid: #86efac;
-  --ch7: #d97706; --ch7-light: #fef3c7; --ch7-mid: #fcd34d;
-  --ch8m: #7c3aed; --ch8m-light: #ede9fe; --ch8m-mid: #c4b5fd;
-  --ch8c: #dc2626; --ch8c-light: #fee2e2; --ch8c-mid: #fca5a5;
+  --ch6: #4a7c59; --ch6-light: #eef4ec; --ch6-mid: #8fad88;
+  --ch7: #c9973a; --ch7-light: #fdf7ee; --ch7-mid: #e8c97a;
+  --ch8m: #6b4e2e; --ch8m-light: #f5ede4; --ch8m-mid: #c4a07a;
+  --ch8c: #b5533c; --ch8c-light: #fdf0ec; --ch8c-mid: #e8a090;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Open Sans', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.85; font-size: 15px; }
+body { font-family: 'Inter', sans-serif; background: #faf8f4; color: #2a2118; line-height: 1.85; font-size: 15px; }
 
 /* PAGE HEADER */
-.page-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f4c81 100%); color: white; padding: 32px 40px; text-align: center; }
-.page-header h1 { font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 8px; }
-.page-header .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 14px; }
-.exam-badge { display: inline-block; background: #fbbf24; color: #1e293b; font-weight: 800; padding: 6px 20px; border-radius: 20px; font-size: 0.95rem; }
-.lulus { color: #ff69b4; font-style: italic; font-weight: 900; }
+.page-header { background: linear-gradient(135deg, #2d5a27 0%, #3d6e35 60%, #2d5a27 100%); color: white; padding: 32px 40px; text-align: center; border-bottom: 3px solid #c9973a; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: 0.01em; }
+.page-header .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 14px; font-family: 'Inter', sans-serif; }
+.exam-badge { display: inline-block; background: #c9973a; color: #2a2118; font-weight: 700; padding: 6px 20px; border-radius: 4px; font-size: 0.95rem; font-family: 'Inter', sans-serif; }
+.lulus { color: #c9973a; font-style: italic; font-weight: 700; }
 
 /* HOW TO USE */
-.how-to-box { background: linear-gradient(135deg, #1e3a5f, #0f4c81); color: white; margin: 24px 32px; padding: 20px 28px; border-radius: 12px; border-left: 6px solid #fbbf24; }
-.how-to-box h3 { color: #fbbf24; margin-bottom: 10px; font-size: 1rem; }
+.how-to-box { background: linear-gradient(135deg, #243d20, #2d5a27); color: white; margin: 24px 32px; padding: 20px 28px; border-radius: 6px; border-left: 6px solid #c9973a; }
+.how-to-box h3 { color: #c9973a; margin-bottom: 10px; font-size: 1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
 .how-to-box ul { padding-left: 20px; }
-.how-to-box li { margin-bottom: 6px; font-size: 0.9rem; line-height: 1.6; }
+.how-to-box li { margin-bottom: 6px; font-size: 0.9rem; line-height: 1.6; font-family: 'Inter', sans-serif; }
 
 /* TABLE OF CONTENTS */
 .toc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 32px; }
-.toc-card { display: flex; flex-direction: column; align-items: center; padding: 20px 12px; border-radius: 14px; text-decoration: none; color: white; font-weight: 700; transition: transform 0.2s; text-align: center; }
+.toc-card { display: flex; flex-direction: column; align-items: center; padding: 20px 12px; border-radius: 6px; text-decoration: none; color: white; font-weight: 700; transition: transform 0.2s; text-align: center; }
 .toc-card:hover { transform: translateY(-4px); }
-.toc-card .ch-num { font-family: 'Nunito', sans-serif; font-size: 2.5rem; font-weight: 900; line-height: 1; }
-.toc-card .ch-title { font-size: 0.9rem; margin-top: 8px; }
-.toc-card.ch6 { background: linear-gradient(135deg, #16a34a, #15803d); }
-.toc-card.ch7 { background: linear-gradient(135deg, #d97706, #b45309); }
-.toc-card.ch8m { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
-.toc-card.ch8c { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+.toc-card .ch-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; line-height: 1; }
+.toc-card .ch-title { font-size: 0.9rem; margin-top: 8px; font-family: 'Inter', sans-serif; }
+.toc-card.ch6 { background: linear-gradient(135deg, #4a7c59, #2d5a27); }
+.toc-card.ch7 { background: linear-gradient(135deg, #c9973a, #a07828); }
+.toc-card.ch8m { background: linear-gradient(135deg, #6b4e2e, #4a3520); }
+.toc-card.ch8c { background: linear-gradient(135deg, #b5533c, #8a3828); }
 
 /* CHAPTER CONTAINERS */
-.chapter { margin: 32px; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.chapter { margin: 32px; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 16px rgba(45,26,10,0.1); }
 .ch-header { display: flex; align-items: center; gap: 20px; padding: 24px 32px; color: white; }
-.ch-header.ch6 { background: linear-gradient(135deg, #16a34a, #15803d); }
-.ch-header.ch7 { background: linear-gradient(135deg, #d97706, #b45309); }
-.ch-header.ch8m { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
-.ch-header.ch8c { background: linear-gradient(135deg, #dc2626, #b91c1c); }
-.ch-num-big { font-family: 'Nunito', sans-serif; font-size: 4rem; font-weight: 900; opacity: 0.3; line-height: 1; min-width: 80px; }
-.ch-header-text h2 { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; }
-.ch-header-text .ch-sub { font-size: 0.9rem; opacity: 0.85; margin-top: 4px; }
+.ch-header.ch6 { background: linear-gradient(135deg, #4a7c59, #2d5a27); }
+.ch-header.ch7 { background: linear-gradient(135deg, #c9973a, #a07828); }
+.ch-header.ch8m { background: linear-gradient(135deg, #6b4e2e, #4a3520); }
+.ch-header.ch8c { background: linear-gradient(135deg, #b5533c, #8a3828); }
+.ch-num-big { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 800; opacity: 0.3; line-height: 1; min-width: 80px; }
+.ch-header-text h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 800; }
+.ch-header-text .ch-sub { font-size: 0.9rem; opacity: 0.85; margin-top: 4px; font-family: 'Inter', sans-serif; }
 .ch-body { padding: 28px 32px; background: white; }
 
 /* SECTION TITLES */
-.section-title { font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 800; padding: 10px 18px; border-radius: 8px; margin: 28px 0 14px 0; color: white; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; padding: 10px 18px; border-radius: 4px; margin: 28px 0 14px 0; color: white; }
 .section-title.ch6 { background: var(--ch6); }
 .section-title.ch7 { background: var(--ch7); }
 .section-title.ch8m { background: var(--ch8m); }
 .section-title.ch8c { background: var(--ch8c); }
 
 /* COLORED BOXES */
-.box { border-radius: 10px; padding: 16px 20px; margin: 14px 0; border-left: 5px solid; page-break-inside: avoid; break-inside: avoid; }
-.box-label { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-.box-remember { background: #fefce8; border-color: #ca8a04; }
-.box-remember .box-label { color: #92400e; }
-.box-trick { background: #f3e8ff; border-color: #9333ea; }
-.box-trick .box-label { color: #6b21a8; }
-.box-def { background: #dbeafe; border-color: #2563eb; }
-.box-def .box-label { color: #1e40af; }
-.box-example { background: #d1fae5; border-color: #059669; }
-.box-example .box-label { color: #065f46; }
-.box-alert { background: #ffedd5; border-color: #ea580c; }
-.box-alert .box-label { color: #9a3412; }
-.box-tophat { background: #fdf4ff; border-color: #c026d3; }
-.box-tophat .box-label { color: #86198f; }
+.box { border-radius: 6px; padding: 16px 20px; margin: 14px 0; border-left: 5px solid; page-break-inside: avoid; break-inside: avoid; }
+.box-label { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+.box-remember { background: #fdf7ee; border-color: #c9973a; }
+.box-remember .box-label { color: #7a5a10; }
+.box-trick { background: #f5ede4; border-color: #6b4e2e; }
+.box-trick .box-label { color: #4a3520; }
+.box-def { background: #eef4ec; border-color: #4a7c59; }
+.box-def .box-label { color: #2d5a27; }
+.box-example { background: #faf8f4; border-color: #8fad88; }
+.box-example .box-label { color: #4a7c59; }
+.box-alert { background: #fdf0ec; border-color: #b5533c; }
+.box-alert .box-label { color: #7a2a1a; }
+.box-tophat { background: #f5ede4; border-color: #c97b5a; }
+.box-tophat .box-label { color: #6b4e2e; }
 
 /* EQUATION BOXES */
-.equation { background: linear-gradient(135deg, #0f172a, #1e3a5f); color: white; border-radius: 12px; padding: 20px 28px; margin: 16px 0; text-align: center; }
-.eq-label { font-size: 0.8rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-.eq-main { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fbbf24; }
-.eq-words { font-size: 0.9rem; opacity: 0.8; margin-top: 6px; }
+.equation { background: linear-gradient(135deg, #2a2118, #4a3520); color: white; border-radius: 6px; padding: 20px 28px; margin: 16px 0; text-align: center; }
+.eq-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.eq-main { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #c9973a; }
+.eq-words { font-family: 'Inter', sans-serif; font-size: 0.9rem; opacity: 0.8; margin-top: 6px; }
 
 /* TABLES */
-.compare-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+.compare-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; font-family: 'Inter', sans-serif; }
 .compare-table th { padding: 10px 14px; color: white; text-align: left; font-weight: 700; }
-.compare-table td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.compare-table td { padding: 10px 14px; border-bottom: 1px solid #e8e0d4; vertical-align: top; }
 .compare-table tr:last-child td { border-bottom: none; }
-.compare-table tr:nth-child(even) td { background: #f8fafc; }
+.compare-table tr:nth-child(even) td { background: #faf8f4; }
 .th-ch6 { background: var(--ch6); }
 .th-ch7 { background: var(--ch7); }
 .th-ch8m { background: var(--ch8m); }
 .th-ch8c { background: var(--ch8c); }
-.th-blue { background: #1e40af; }
-.th-purple { background: #6d28d9; }
-.th-gray { background: #475569; }
+.th-blue { background: #4a7c59; }
+.th-purple { background: #6b4e2e; }
+.th-gray { background: #5c4a3a; }
 
 /* LISTS */
 .bullet-list { padding-left: 22px; margin: 8px 0; }
@@ -112,14 +124,14 @@ body { font-family: 'Open Sans', sans-serif; background: #f8fafc; color: #1e293b
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
 
 /* ATP BADGE */
-.atp-badge { display: inline-block; background: linear-gradient(135deg, #d97706, #b45309); color: white; font-weight: 800; padding: 2px 10px; border-radius: 12px; font-size: 0.85rem; }
+.atp-badge { display: inline-block; background: linear-gradient(135deg, #c9973a, #a07828); color: white; font-weight: 700; padding: 2px 10px; border-radius: 4px; font-size: 0.85rem; font-family: 'Inter', sans-serif; }
 
 /* TOPHAT QUESTION STYLE */
-.tophat-q { background: #fdf4ff; border: 2px solid #c026d3; border-radius: 10px; padding: 16px 20px; margin: 12px 0; }
-.tophat-q .q-text { font-weight: 700; margin-bottom: 10px; color: #1e293b; }
-.tophat-q .q-answer { background: #d1fae5; border-left: 4px solid #059669; padding: 8px 14px; border-radius: 6px; font-weight: 600; color: #065f46; }
-.tophat-q .q-wrong { background: #fee2e2; border-left: 4px solid #dc2626; padding: 8px 14px; border-radius: 6px; font-weight: 600; color: #991b1b; margin-top: 6px; }
-.tophat-q .q-explain { font-size: 0.88rem; color: #475569; margin-top: 8px; font-style: italic; }
+.tophat-q { background: #f5ede4; border: 2px solid #c97b5a; border-radius: 6px; padding: 16px 20px; margin: 12px 0; }
+.tophat-q .q-text { font-weight: 600; margin-bottom: 10px; color: #2a2118; font-family: 'Playfair Display', serif; }
+.tophat-q .q-answer { background: #eef4ec; border-left: 4px solid #4a7c59; padding: 8px 14px; border-radius: 4px; font-weight: 600; color: #2d5a27; font-family: 'Inter', sans-serif; }
+.tophat-q .q-wrong { background: #fdf0ec; border-left: 4px solid #b5533c; padding: 8px 14px; border-radius: 4px; font-weight: 600; color: #7a2a1a; margin-top: 6px; font-family: 'Inter', sans-serif; }
+.tophat-q .q-explain { font-size: 0.88rem; color: #5c4a3a; margin-top: 8px; font-style: italic; font-family: 'Inter', sans-serif; }
 
 /* QUICK REFERENCE SECTION */
 .qr-section { margin: 32px; }
@@ -144,12 +156,12 @@ body { font-family: 'Open Sans', sans-serif; background: #f8fafc; color: #1e293b
 <div class="how-to-box">
   <h3>📌 How to Use This Guide</h3>
   <ul>
-    <li>🟡 <strong>YELLOW boxes</strong> = ⭐ REMEMBER — highest-priority exam facts</li>
-    <li>🟣 <strong>PURPLE boxes</strong> = 🧠 MEMORY TRICK — mnemonics to make it stick</li>
-    <li>🔵 <strong>BLUE boxes</strong> = 📖 DEFINITION — exact vocabulary terms</li>
-    <li>🟠 <strong>ORANGE boxes</strong> = ⚠️ ALERT — common mistakes &amp; tricky exam points</li>
-    <li>🟢 <strong>GREEN boxes</strong> = 💡 EXAMPLE — real-world connections</li>
-    <li>🟥 <strong>PINK/PURPLE boxes</strong> = 🎓 TOPHAT — actual professor in-class questions</li>
+    <li>🟡 <strong>GOLD boxes</strong> = ⭐ REMEMBER — highest-priority exam facts</li>
+    <li>🟤 <strong>BROWN boxes</strong> = 🧠 MEMORY TRICK — mnemonics to make it stick</li>
+    <li>🟢 <strong>GREEN boxes</strong> = 📖 DEFINITION — exact vocabulary terms</li>
+    <li>🔴 <strong>RED boxes</strong> = ⚠️ ALERT — common mistakes &amp; tricky exam points</li>
+    <li>🌿 <strong>SAGE boxes</strong> = 💡 EXAMPLE — real-world connections</li>
+    <li>🟠 <strong>CLAY boxes</strong> = 🎓 TOPHAT — actual professor in-class questions</li>
     <li>⬛ <strong>DARK boxes</strong> = ⚗️ EQUATIONS — know these cold!</li>
   </ul>
 </div>
